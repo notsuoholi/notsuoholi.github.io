@@ -11,4 +11,3 @@ My hope is that this simple blog will inspire others to begin that journey for t
 ## My Projects
 ### Technical
 - [Note Taker](https://github.com/notsuoholi/note-taker): A node.js application which manages user created notes.
-- [Healthchecker](https://github.com/notsuoholi/healthchecker): A simple script that performs health checks when provided a list of URLs defined in a YAML configuration file.
