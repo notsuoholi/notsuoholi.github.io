@@ -6,7 +6,33 @@
     <description>Recent content in Posts on Oli&#39;s Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Oct 2024 22:20:49 -0500</lastBuildDate><atom:link href="https://notsuoholi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Oct 2024 02:01:54 -0500</lastBuildDate><atom:link href="https://notsuoholi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Security and YOU (the SRE)</title>
+      <link>https://notsuoholi.github.io/posts/sresecurity/</link>
+      <pubDate>Mon, 21 Oct 2024 02:01:54 -0500</pubDate>
+      
+      <guid>https://notsuoholi.github.io/posts/sresecurity/</guid>
+      
+      <description>&lt;p&gt;Though it may seem as though security might not need to be at the forefront of an SRE&amp;rsquo;s mind, the reality couldn&amp;rsquo;t be more different.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Downtime Reduction - If build security into our practices, we will deliver a product with very few vulnerabilities which in turn means less vulnerability to exploit, and therefore less downtime.&lt;/li&gt;
+&lt;li&gt;Compliance Standards - In order to meet compliance standards like &lt;a href=&#34;https://www.getkisi.com/guides/soc-2-type-ii#soc-2-type-ii-compliance&#34;&gt;SOC 2&lt;/a&gt;, our in built procedures regarding security must be strong.&lt;/li&gt;
+&lt;li&gt;No Damage to Brand - If we are breached, our reputation will be damaged, thus degrading consumer trust in our product.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;most-common-threats-relevant-to-sre&#34;&gt;Most Common Threats Relevant to SRE&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;DDoS Attacks - Aims to drive an overwhelming amount of simulated traffic to a service of piece of a service in order to cause it to be unavailable for use by normal end users.&lt;/li&gt;
+&lt;li&gt;Software exploits - If there is an issue or vulnerability in a specific version of our product or a service we use within our product this could be used by an attacker to gain access to our service or infrastructure.&lt;/li&gt;
+&lt;li&gt;Phishing - Social engineering can be used to get employees to give up sensitive information and gain access to our service and infrastructure.&lt;/li&gt;
+&lt;li&gt;Ransomware - Gaining access to a piece of our infrastructure or codebase as using this as a means to demand payment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;best-practices-for-mitigating-threats&#34;&gt;Best Practices for Mitigating Threats&lt;/h2&gt;
+&lt;h3 id=&#34;access-control&#34;&gt;Access Control&lt;/h3&gt;
+&lt;p&gt;Controlling access to resources must be a priority.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>SRE - Core Principles</title>
       <link>https://notsuoholi.github.io/posts/srecore/</link>

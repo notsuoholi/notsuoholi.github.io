@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Security and YOU (the SRE) | Oli&#39;s Workshop</title>
+<meta property="og:title" content="Security and YOU (the SRE) | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="Security and YOU (the SRE) | Oli&#39;s Workshop" />
+<meta itemprop="name" content="Security and YOU (the SRE) | Oli&#39;s Workshop" />
+<meta name="application-name" content="Security and YOU (the SRE) | Oli&#39;s Workshop" />
+<meta property="og:site_name" content="Oli&#39;s Workshop" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="https://notsuoholi.github.io/posts/sresecurity/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-10-21T02:01:54-0500 />
+    <meta property="article:published_time" content=2024-10-21T02:01:54-0500 />
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/sresecurity/" />
+
+    
+    <meta property="og:article:author" content="Oli Blaine" />
+    <meta property="article:author" content="Oli Blaine" />
+    <meta name="author" content="Oli Blaine" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Security and YOU (the SRE)",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-10-21",
+        "description": "",
+        "wordCount":  1720 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-10-21",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Oli\u0027s Workshop"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/sresecurity/">
+  <meta property="og:site_name" content="Oli&#39;s Workshop">
+  <meta property="og:title" content="Security and YOU (the SRE)">
+  <meta property="og:description" content="Though it may seem as though security might not need to be at the forefront of an SRE’s mind, the reality couldn’t be more different.
+Downtime Reduction - If build security into our practices, we will deliver a product with very few vulnerabilities which in turn means less vulnerability to exploit, and therefore less downtime. Compliance Standards - In order to meet compliance standards like SOC 2, our in built procedures regarding security must be strong. No Damage to Brand - If we are breached, our reputation will be damaged, thus degrading consumer trust in our product. Most Common Threats Relevant to SRE DDoS Attacks - Aims to drive an overwhelming amount of simulated traffic to a service of piece of a service in order to cause it to be unavailable for use by normal end users. Software exploits - If there is an issue or vulnerability in a specific version of our product or a service we use within our product this could be used by an attacker to gain access to our service or infrastructure. Phishing - Social engineering can be used to get employees to give up sensitive information and gain access to our service and infrastructure. Ransomware - Gaining access to a piece of our infrastructure or codebase as using this as a means to demand payment. Best Practices for Mitigating Threats Access Control Controlling access to resources must be a priority.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-21T02:01:54-05:00">
+    <meta property="article:modified_time" content="2024-10-21T02:01:54-05:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Security and YOU (the SRE)">
+  <meta name="twitter:description" content="Though it may seem as though security might not need to be at the forefront of an SRE’s mind, the reality couldn’t be more different.
+Downtime Reduction - If build security into our practices, we will deliver a product with very few vulnerabilities which in turn means less vulnerability to exploit, and therefore less downtime. Compliance Standards - In order to meet compliance standards like SOC 2, our in built procedures regarding security must be strong. No Damage to Brand - If we are breached, our reputation will be damaged, thus degrading consumer trust in our product. Most Common Threats Relevant to SRE DDoS Attacks - Aims to drive an overwhelming amount of simulated traffic to a service of piece of a service in order to cause it to be unavailable for use by normal end users. Software exploits - If there is an issue or vulnerability in a specific version of our product or a service we use within our product this could be used by an attacker to gain access to our service or infrastructure. Phishing - Social engineering can be used to get employees to give up sensitive information and gain access to our service and infrastructure. Ransomware - Gaining access to a piece of our infrastructure or codebase as using this as a means to demand payment. Best Practices for Mitigating Threats Access Control Controlling access to resources must be a priority.">
+
+
+    
+
+    <link rel="canonical" href="https://notsuoholi.github.io/posts/sresecurity/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://notsuoholi.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "auto" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://notsuoholi.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/background/">
+                        Background
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Security and YOU (the SRE)</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-21T02:01:54-05:00" itemprop="datePublished"> Oct 21, 2024 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#most-common-threats-relevant-to-sre">Most Common Threats Relevant to SRE</a></li>
+    <li><a href="#best-practices-for-mitigating-threats">Best Practices for Mitigating Threats</a>
+      <ul>
+        <li><a href="#access-control">Access Control</a></li>
+        <li><a href="#monitor-monitor-and-monitor">Monitor, Monitor, and Monitor</a></li>
+        <li><a href="#example-workflow-for-security-monitoring">Example Workflow for Security Monitoring</a></li>
+        <li><a href="#disaster-recovery-backups--response-playbooks">Disaster Recovery, Backups, &amp; Response Playbooks</a></li>
+        <li><a href="#hardening-your-infrastructure">Hardening Your Infrastructure</a></li>
+        <li><a href="#cloud-and-cluster-security">Cloud and Cluster Security</a></li>
+        <li><a href="#data-encryption--methods">Data Encryption &amp; Methods</a></li>
+        <li><a href="#siem-security-information-and-event-management">SIEM (Security Information and Event Management)</a></li>
+      </ul>
+    </li>
+    <li><a href="#secure-networking">Secure Networking</a>
+      <ul>
+        <li><a href="#firewalls-and-rules">Firewalls and Rules</a></li>
+        <li><a href="#ingress">Ingress</a></li>
+        <li><a href="#layer-4-load-balancer">Layer 4 Load Balancer</a></li>
+        <li><a href="#layer-7-load-balancer">Layer 7 Load Balancer</a></li>
+        <li><a href="#the-power-of-the-three">The Power of the Three</a></li>
+        <li><a href="#the-power-of-http-headers--cors">The Power of HTTP Headers &amp; CORS</a></li>
+      </ul>
+    </li>
+    <li><a href="#certificates--management">Certificates &amp; Management</a>
+      <ul>
+        <li><a href="#tools-for-cert-management">Tools for Cert Management</a></li>
+      </ul>
+    </li>
+    <li><a href="#sources">Sources:</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>Though it may seem as though security might not need to be at the forefront of an SRE&rsquo;s mind, the reality couldn&rsquo;t be more different.</p>
+<ul>
+<li>Downtime Reduction - If build security into our practices, we will deliver a product with very few vulnerabilities which in turn means less vulnerability to exploit, and therefore less downtime.</li>
+<li>Compliance Standards - In order to meet compliance standards like <a href="https://www.getkisi.com/guides/soc-2-type-ii#soc-2-type-ii-compliance">SOC 2</a>, our in built procedures regarding security must be strong.</li>
+<li>No Damage to Brand - If we are breached, our reputation will be damaged, thus degrading consumer trust in our product.</li>
+</ul>
+<h2 id="most-common-threats-relevant-to-sre">Most Common Threats Relevant to SRE</h2>
+<ul>
+<li>DDoS Attacks - Aims to drive an overwhelming amount of simulated traffic to a service of piece of a service in order to cause it to be unavailable for use by normal end users.</li>
+<li>Software exploits - If there is an issue or vulnerability in a specific version of our product or a service we use within our product this could be used by an attacker to gain access to our service or infrastructure.</li>
+<li>Phishing - Social engineering can be used to get employees to give up sensitive information and gain access to our service and infrastructure.</li>
+<li>Ransomware - Gaining access to a piece of our infrastructure or codebase as using this as a means to demand payment.</li>
+</ul>
+<h2 id="best-practices-for-mitigating-threats">Best Practices for Mitigating Threats</h2>
+<h3 id="access-control">Access Control</h3>
+<p>Controlling access to resources must be a priority.</p>
+<ul>
+<li>Commit to the principle of least privilege and only give access to exactly what is necessary for a person or team to complete a task or project. No more, no less.</li>
+<li>Use Terraform to provision access to resources in your cloud infrastructure for individuals.</li>
+<li>Tightly control which authenticated users can access which resources.</li>
+<li>Prefer service accounts over user accounts and deploy infrastructure with tools such as Atlantis which reduces attack surface should a user account be exploited.</li>
+<li>Service accounts should have heavily restricted access. Typically, a service account should only have access to a limited number of roles which are also tightly controlled to reduce attack surface in the case of an intrusion.</li>
+<li>Understanding how Service accounts are used by attackers is important for understanding Cloud security.</li>
+<li>Impersonation
+<ul>
+<li>Exported account keys.</li>
+<li>ActAs, JWT (JSON Web Token) in Cloud.</li>
+</ul>
+</li>
+<li>Restrict Access to objects in cloud object storage from public and only allow restricted access to the contents inside.</li>
+</ul>
+<h3 id="monitor-monitor-and-monitor">Monitor, Monitor, and Monitor</h3>
+<p>Well implemented monitoring systems are our first line of defense in preventing security breaches and also incredible resource when facilitating analysis of security breaches.</p>
+<h3 id="example-workflow-for-security-monitoring">Example Workflow for Security Monitoring</h3>
+<ul>
+<li>Use Prometheus for collecting metrics for your applications and system. You can use data related to things like error rates or CPU spikes at unusual intervals to determine if there is something suspicious occurring.</li>
+<li>Use a log aggregator like Loki to collect and search your application logs to find things such as failed login attempts or logs from an IPS or IDS.</li>
+<li>Use something like Stackdriver (GCP) to view metrics for your ingresses and find unusual traffic patterns or access violations.</li>
+<li>Alert on the metrics from Prometheus and Stackdriver when patterns deviate too far from expectation.</li>
+</ul>
+<h3 id="disaster-recovery-backups--response-playbooks">Disaster Recovery, Backups, &amp; Response Playbooks</h3>
+<p>In the event that a security breach does happen, you must ensure you have recent backups and recovery plans in place. Test them regularly to make sure they behave as intended.</p>
+<p><a href="https://github.com/aws-samples/aws-incident-response-playbooks/tree/master">AWS Incident Reponse Playbook Samples</a></p>
+<h3 id="hardening-your-infrastructure">Hardening Your Infrastructure</h3>
+<ul>
+<li>Review key principles of hardening cloud infrastructure (e.g., least privilege, minimizing attack surfaces, encrypting data at rest and in transit, using IAM roles).</li>
+<li>Lateral movement and privilege escalation techniques.
+<ul>
+<li>Cloud Service Accounts can be used for lateral movement and privilege escalation in Cloud environments. Ensure you are operating on PoLP to prevent attack surface.</li>
+</ul>
+</li>
+</ul>
+<h3 id="cloud-and-cluster-security">Cloud and Cluster Security</h3>
+<ul>
+<li>Regularly audit your system for any vulnerabilities with tools like Dependabot, Snyk, and SonarQube.</li>
+<li>Use trusted images and modules (i.e. Terraform) published by trusted, and verified authors.</li>
+<li>Do not run containers as root to minimize impact should container be breached.</li>
+<li>Set limits on resources in the even they are accessed so system resources are preserved for other, unaffected workloads.</li>
+<li>Only allow communication between pods on a necessary basis to limit attack surface. You can accomplish this by implementing a service mesh to manage traffic between services.</li>
+<li>Implement RBAC policies in a Kubernetes cluster which specify only the access required for any specific role to run and no more.</li>
+<li>Store secrets in a manager such as Google Secrets Manager or Hashicorp Vault and inject them at runtime. Do NOT store secrets in your codebase or Dockerfiles.</li>
+<li>Implement version pinning for your images. Run a version 1-3 releases behind the latest release to ensure you do not encounter application breaking changes, version incompatibility, or vulnerability exploits that might be found in a <code>:latest</code> release.</li>
+<li>Set pod security policies which are the base conditions pods must adhere to in order to run inside the cluster. i.e. A policy which restricts pods from being able to run as root set on pods with a specific label.</li>
+</ul>
+<h3 id="data-encryption--methods">Data Encryption &amp; Methods</h3>
+<p>Asymmetric vs Symmetric</p>
+<ul>
+<li>Asymmetric (RSA) is slow, but good for establishing a trusted connection. Like connecting to a bastion using a public/private key pair.</li>
+<li>Symmetric (AES) has a shared key and is faster. Protocols often use asymmetric to transfer symmetric key. Perfect forward secrecy. Think WhatsApp or Signal. Can also be used for things like secure online shopping or quickly encrypting/decrypting file data.</li>
+</ul>
+<h3 id="siem-security-information-and-event-management">SIEM (Security Information and Event Management)</h3>
+<ul>
+<li>Splunk is one of the most common SIEM tools available for monitoring logs and security data in real time to find vulnerabilities.
+<ul>
+<li>You can setup automated searches to detect anomalies, and trigger alerts on activity deemed as suspicious.</li>
+<li>You can also visualize data in dashboards.</li>
+</ul>
+</li>
+</ul>
+<h2 id="secure-networking">Secure Networking</h2>
+<h3 id="firewalls-and-rules">Firewalls and Rules</h3>
+<ul>
+<li>A firewall allows you to define rules for both inbound and outbound traffic. This puts an SRE in the perfect position to deny specific traffic based on source or destination IP addresses, ports, and protocols. This powerful tool is very helpful in preventing unauthorized access to our resources and infrastructure.</li>
+<li>Most modern, cloud provided firewalls or FWaaS tools have built in protection from Intrusion. They also provide a method for mitigating DDoS attacks because they allow you to filter traffic that exceeds predefined, acceptable thresholds or appears malicious.</li>
+</ul>
+<h3 id="ingress">Ingress</h3>
+<ul>
+<li>An ingress is a networking component which exposes HTTP/HTTPS routes outside a k8s cluster to services internally. Traffic rules are defined and controlled in the ingress resource itself.</li>
+<li>You must have an ingress controller for an ingress to work in your cluster. Think of something like NGINX, Kong, or HA Proxy.</li>
+<li>It allows us to set rules for how you want traffic to flow in and out of our application(s).</li>
+<li>Benefits include:
+<ul>
+<li>Path-based and host-based routing to reduce number of entry-points we expose</li>
+<li>TLS termination and encryption - The ingress handles SSL/TLS termination to establish secure HTTPS connections so we know our data is encrypted and safe from inspection or interception.</li>
+<li>We can implement rate-limiting, IP white-listing to further control access to our services.</li>
+<li>These work in tandem with web-application firewalls to protect against attacks and export metrics and logs we can use to detect anomalies and threats.</li>
+</ul>
+</li>
+</ul>
+<h3 id="layer-4-load-balancer">Layer 4 Load Balancer</h3>
+<ul>
+<li>Operates at the transport layer (OSI Layer 4), distributing traffic based on IP addresses, ports, and protocol information, without looking into the actual data of the packets.</li>
+<li>Provides fast, efficient routing for TCP/UDP traffic but lacks the ability to make complex routing decisions based on application-level information.</li>
+</ul>
+<h3 id="layer-7-load-balancer">Layer 7 Load Balancer</h3>
+<ul>
+<li>Works at the application layer (OSI Layer 7), inspecting HTTP headers, URLs, and cookies to make intelligent routing decisions based on application-specific data.</li>
+<li>Enables advanced features like content-based routing, SSL termination, and traffic manipulation for better performance, security, and customization.</li>
+</ul>
+<h3 id="the-power-of-the-three">The Power of the Three</h3>
+<p>When all three work together, we achieve a layered, secure approach to application delivery.</p>
+<ul>
+<li>The LB handles traffic distribution and acts as the first line of defense before traffic reaches the application layer.</li>
+<li>The ingress controller operates as described about and determines how requests are handled and directed to services based on the rules we set in our configuration and it enhances the security of our application via SSL.</li>
+<li>Finally, our WAF offers an additional layer of security by enabling us to inspect incoming traffic for potential threats. We can filter and monitor HTTP requests and stop unusual requests or potential attacks before they have the chance to cause damage.</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>Component</strong></th>
+          <th style="text-align: left"><strong>Function</strong></th>
+          <th style="text-align: left"><strong>Flow</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Client</strong></td>
+          <td style="text-align: left">Sends HTTP/HTTPS requests</td>
+          <td style="text-align: left">↓</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Load Balancer</strong></td>
+          <td style="text-align: left">Distributes incoming traffic</td>
+          <td style="text-align: left">↓</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Ingress Controller</strong></td>
+          <td style="text-align: left">Manages routing based on defined rules</td>
+          <td style="text-align: left">↓</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Web Application Firewall</strong></td>
+          <td style="text-align: left">Inspects and filters requests for threats</td>
+          <td style="text-align: left">↓</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Backend Services</strong></td>
+          <td style="text-align: left">Receives clean, routed traffic</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="the-power-of-http-headers--cors">The Power of HTTP Headers &amp; CORS</h3>
+<ul>
+<li>CORS
+<ul>
+<li>Cross-Origin Resource Sharing. Can specify allowed origins in HTTP headers. Sends a preflight request with options set asking if the server approves, and if the server approves, then the actual request is sent (eg. should client send auth cookies).</li>
+</ul>
+</li>
+<li>Headers:
+<ul>
+<li>X-Content-Type-Options - prevents browsers from interpreting files as different types than intended. Gives us some protection against attack.</li>
+<li>Content Security Policy - Specifies which sources can load content on site/application. Can be used to prevent malicious scripts from being run.</li>
+<li>Strict-Transport-Security (HSTS) - Ensures browsers can only connect to site using HTTPS. Results in more secure connections to application and prevents &ldquo;eavesdropping&rdquo;.</li>
+</ul>
+</li>
+</ul>
+<h2 id="certificates--management">Certificates &amp; Management</h2>
+<p>Certificates enable us to encrypt data in transit and protect against the exposure of sensitive data and man-in-the-middle attacks.</p>
+<ul>
+<li>They also enable more trust in our users as they are provided the guarantee of their data being encrypted and that there is established trust between the client and server they are interacting with.</li>
+<li>They enable us to meet compliance standards like <a href="https://gdpr.eu/">GDPR</a>.</li>
+</ul>
+<h3 id="tools-for-cert-management">Tools for Cert Management</h3>
+<ul>
+<li>Cert-Manager - Open-source add-on for Kubernetes which automates management and issuance of TLS certs from various sources for the cluster.</li>
+<li>Let&rsquo;s Encrypt - Free and automated cert authority which provides SSL/TLS certs. It allows one to obtain certs quickly and renew them automatically which ensures secure HTTPS connections to public addresses.</li>
+<li>OpenSSL - Used for generating SSL/TLS certs. Can be self-signed as well as signed by an authority. This gives it the flexibility to be used for creating certs for internal services or test environments.</li>
+</ul>
+<h2 id="sources">Sources:</h2>
+<ul>
+<li><a href="https://medium.com/wanna-know-whats-next/security-with-sre-7891c4af24fd">Security in SRE</a></li>
+<li><a href="https://github.com/gracenolan/Notes/blob/master/interview-study-notes-for-security-engineering.md#networking">Security Engineering Notes</a></li>
+<li><a href="https://github.com/aws-samples/aws-incident-response-playbooks/blob/master/playbooks/IRP-DoS.md">AWS Incident Response</a></li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/notsuoholi" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://linkedin.com/in/oliblaine" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Oli Blaine.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://notsuoholi.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>
