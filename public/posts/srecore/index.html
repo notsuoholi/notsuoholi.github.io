@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">SRE - Core Principles | Oli&#39;s Workshop</title>
+<meta property="og:title" content="SRE - Core Principles | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="SRE - Core Principles | Oli&#39;s Workshop" />
+<meta itemprop="name" content="SRE - Core Principles | Oli&#39;s Workshop" />
+<meta name="application-name" content="SRE - Core Principles | Oli&#39;s Workshop" />
+<meta property="og:site_name" content="Oli&#39;s Workshop" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="https://notsuoholi.github.io/posts/srecore/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-10-16T22:20:49-0500 />
+    <meta property="article:published_time" content=2024-10-16T22:20:49-0500 />
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/srecore/" />
+
+    
+    <meta property="og:article:author" content="Oli Blaine" />
+    <meta property="article:author" content="Oli Blaine" />
+    <meta name="author" content="Oli Blaine" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "SRE - Core Principles",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-10-16",
+        "description": "",
+        "wordCount":  3118 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-10-16",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Oli\u0027s Workshop"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/srecore/">
+  <meta property="og:site_name" content="Oli&#39;s Workshop">
+  <meta property="og:title" content="SRE - Core Principles">
+  <meta property="og:description" content="I have outlined a few of the core responsibilities and practices of Site Reliability Engineers (SREs). Their focus is primarily on operational resilience and reducing toil through automation.
+My goal was to cover key topics like system reliability, incident management, the importance of metrics like SLIs, SLOs, and SLAs, and how SREs use monitoring and alerting to maintain service performance while collaborating closely with development teams to ensure scalable, predictable, and efficient systems.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-16T22:20:49-05:00">
+    <meta property="article:modified_time" content="2024-10-16T22:20:49-05:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SRE - Core Principles">
+  <meta name="twitter:description" content="I have outlined a few of the core responsibilities and practices of Site Reliability Engineers (SREs). Their focus is primarily on operational resilience and reducing toil through automation.
+My goal was to cover key topics like system reliability, incident management, the importance of metrics like SLIs, SLOs, and SLAs, and how SREs use monitoring and alerting to maintain service performance while collaborating closely with development teams to ensure scalable, predictable, and efficient systems.">
+
+
+    
+
+    <link rel="canonical" href="https://notsuoholi.github.io/posts/srecore/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://notsuoholi.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "auto" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://notsuoholi.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/background/">
+                        Background
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">SRE - Core Principles</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-16T22:20:49-05:00" itemprop="datePublished"> Oct 16, 2024 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sre---a-focus-operational-resilience--toil-reduction">SRE - A Focus Operational Resilience &amp; TOIL Reduction</a></li>
+    <li><a href="#eliminating-toil">Eliminating <del>TOIL</del></a></li>
+    <li><a href="#incident-management--rca">Incident Management &amp; RCA</a>
+      <ul>
+        <li><a href="#recursive-separation-of-responsibility">Recursive Separation of Responsibility</a></li>
+        <li><a href="#where-to-handle-the-incident">Where to handle the incident?</a></li>
+        <li><a href="#when-to-declare-an-incident">When to Declare an Incident</a></li>
+        <li><a href="#best-practices">Best Practices:</a></li>
+        <li><a href="#rca-best-practices-and-postmortems">RCA Best Practices and Postmortems</a></li>
+        <li><a href="#handoff">Handoff</a></li>
+      </ul>
+    </li>
+    <li><a href="#monitoring--alerting">Monitoring &amp; Alerting</a>
+      <ul>
+        <li><a href="#why-monitor">Why monitor?</a></li>
+        <li><a href="#humans-when">Humans when?</a></li>
+        <li><a href="#keep-it-quiet">Keep it quiet</a></li>
+        <li><a href="#symptoms-vs-causes">Symptoms vs Causes</a></li>
+        <li><a href="#the-four-golden-signals">The Four Golden Signals</a></li>
+        <li><a href="#worry-about-your-tail">Worry about your tail</a></li>
+        <li><a href="#keep-it-simple-s">Keep it simple s&hellip;</a></li>
+        <li><a href="#when-creating-monitors-and-alerts-remember">When creating monitors and alerts, remember</a></li>
+        <li><a href="#long-term-results-of-monitoring">Long Term Results of Monitoring</a></li>
+      </ul>
+    </li>
+    <li><a href="#sli---slo---sla--error-budgets">SLI -&gt; SLO -&gt; SLA (&amp; Error Budgets)</a>
+      <ul>
+        <li><a href="#what-do-we-and-our-users-really-care-about">What do we and our users really care about?</a></li>
+        <li><a href="#measures">Measures</a></li>
+        <li><a href="#aggregating-data">Aggregating data</a></li>
+        <li><a href="#error-budgets">Error Budgets</a></li>
+        <li><a href="#determining-availability--error-budgets">Determining Availability &amp; Error Budgets</a>
+          <ul>
+            <li><a href="#error-budget-calculations">Error Budget Calculations:</a></li>
+          </ul>
+        </li>
+        <li><a href="#kiss-keep-it-simple-s">KISS (Keep it simple, s&hellip;.)</a></li>
+        <li><a href="#control-measures">Control Measures</a></li>
+        <li><a href="#conservative-promises-or-broken-promises">Conservative Promises or Broken Promises</a></li>
+      </ul>
+    </li>
+    <li><a href="#alerting--priorities">Alerting &amp; Priorities</a>
+      <ul>
+        <li><a href="#common-monitors--alerts">Common Monitors &amp; Alerts</a></li>
+      </ul>
+    </li>
+    <li><a href="#communication-and-collaboration-for-sres">Communication and Collaboration for SREs</a></li>
+    <li><a href="#sources">Sources:</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>I have outlined a few of the core responsibilities and practices of Site Reliability Engineers (SREs). Their focus is primarily on operational resilience and reducing toil through automation.</p>
+<p>My goal was to cover key topics like system reliability, incident management, the importance of metrics like SLIs, SLOs, and SLAs, and how SREs use monitoring and alerting to maintain service performance while collaborating closely with development teams to ensure scalable, predictable, and efficient systems.</p>
+<h2 id="sre---a-focus-operational-resilience--toil-reduction">SRE - A Focus Operational Resilience &amp; TOIL Reduction</h2>
+<ul>
+<li>
+<p>SREs focus on system reliability and incident management. We make data driven decisions which benefit the system. We automate to reduce toil and improve change management to ensure processes in place are repeatable, predictable, and most importantly, scalable.</p>
+</li>
+<li>
+<p>We operate the &lsquo;core&rsquo; of whatever software we are supporting. Can speak to the development teams about the software about what is working and what needs to be optimized. This is driven by the data we get out of the system we monitor.</p>
+</li>
+<li>
+<p>Measure success and success of the platform with things Like SLIs measured against expectations SLOs/SLAs.</p>
+</li>
+<li>
+<p>Areas of focus are:</p>
+<ul>
+<li>Software engineering - Creating tools or frameworks, automating tasks, improving features.</li>
+<li>Systems Engineering - Configuring production systems in ways which produce lasting improvement from single effort. i.e. Improving monitoring setup, server configuration, load balancer setup.</li>
+<li>Reducing TOIL - Removing work that is manual, repetitive, automate-able, tactical, devoid of enduring value, and scales linearly alongside the service.</li>
+<li>Overhead - The administrative work related to running a service. Meetings, paperwork, trainings, etc.</li>
+</ul>
+</li>
+<li>
+<p>Our primary responsibility is to the system and its reliability. We ensure the product&rsquo;s features do not degrade existing infrastructure by causing new software issues like bugs, introducing security risks, or increased failure rates.</p>
+</li>
+</ul>
+<h2 id="eliminating-toil">Eliminating <del>TOIL</del></h2>
+<ul>
+<li>
+<p>If a human has to touch it, it&rsquo;s a problem.</p>
+</li>
+<li>
+<p>Manual - Manually running scripts rather than automating them.</p>
+</li>
+<li>
+<p>Repetitive - Solving the same problem repeatedly rather than solving new problems or creating solutions.</p>
+</li>
+<li>
+<p>Automate-able - If a machine could do this task rather than a human, the task is considered toil.</p>
+</li>
+<li>
+<p>Tactical - Responding to a page is toil. The more we can self-heal and automate, the less pages we encounter.</p>
+</li>
+<li>
+<p>No Enduring Value - If the service is not improved by the task completed, if we&rsquo;re simply returning to the baseline, this task is toil.</p>
+</li>
+<li>
+<p>O(n) == Service Growth - If the task in question scales up linearly (in a 1:1 fashion) with the service, then it is likely toil. If we are operating and designing in an ideal way, a process should be able to scale without very much additional work aside from adding additional resource capacity.</p>
+</li>
+<li>
+<p>Overhead != TOIL</p>
+<ul>
+<li>Meetings, paperwork, company meetings, code reviews, training, etc. Do not equate to toil. These things are necessary parts of running a service. Just ensure they are all producing benefit.</li>
+</ul>
+</li>
+</ul>
+<h2 id="incident-management--rca">Incident Management &amp; RCA</h2>
+<p>The following are pillars of a solid incident management process.</p>
+<h3 id="recursive-separation-of-responsibility">Recursive Separation of Responsibility</h3>
+<p>Ensure everyone on the call or incident knows their roles and plays it effectively. There are certain delegations the leader must designate in order to handle incidents well.</p>
+<ul>
+<li>
+<p>Incident Commander - knows high-level state of incident. They structure the task fore and assign responsibilities according to need and priority. If you do not delegate a position, you own it.</p>
+</li>
+<li>
+<p>Operation Work - The operational leader works with the commands to respond to the incident using operational tools to resolve the problem at hand. They should be the only ones, aside from the commander, to modify the system.</p>
+</li>
+<li>
+<p>Communication - This person leads is the public face of the incidence response team. They give updates about the system to the response team and stakeholders. They may also keep the incident document updated with a timeline and actions.</p>
+</li>
+<li>
+<p>Planning - this role deals with the long term issues, filing bugs, arranging handoffs, and tracking how system diverged so it can be rectified once incident is resolved.</p>
+</li>
+</ul>
+<h3 id="where-to-handle-the-incident">Where to handle the incident?</h3>
+<p>Typically incidents require resolution inside a &ldquo;war room&rdquo; (or video call when remote) when incited by large enough outages. For smaller incidents, it may be appropriate to collaborate over a live document or over Slack or email. You may also work with the organization&rsquo;s IRC (Incident Response Consortium) to respond to the event.</p>
+<h3 id="when-to-declare-an-incident">When to Declare an Incident</h3>
+<ul>
+<li>The earlier the better. Even if it turns out to be a small incident, that is better than waiting too long to use the incident management framework and have the issue spiral.</li>
+<li>Set clear incident declaration guidelines:
+<ul>
+<li>Do you need to involve another team or several persons to fix the problem?</li>
+<li>Is the outage visible to customers?</li>
+<li>Is the issue unsolved even after giving several minutes (30) analysis?</li>
+</ul>
+</li>
+</ul>
+<h3 id="best-practices">Best Practices:</h3>
+<ul>
+<li>Prioritize - stop the bleeding, restore the service, preserve evidence for RCA.</li>
+<li>Prepare - develop and document incident response and management in advance.</li>
+<li>Trust - trust your team, give each role autonomy required</li>
+<li>Introspect - Pay attention to feelings during response. If overwhelmed, seek additional help and delegate</li>
+<li>Consider alternatives - does what you&rsquo;re currently doing make sense? take a step back and try alternatives.</li>
+<li>Practice - get comfortable with the process</li>
+<li>Change it up - try all hats, be comfortable with handling multiple roles during an incident</li>
+</ul>
+<h3 id="rca-best-practices-and-postmortems">RCA Best Practices and Postmortems</h3>
+<p>The goal of any useful postmortem is to ensure that the incident is well documented <em><strong>and</strong></em> that all underlying root causes are well understood and, that effective actions are implemented to reduce likelihood and impact of recurrence.</p>
+<p>RCA Steps:</p>
+<ul>
+<li>Define your problem or symptom</li>
+<li>Identity possible causes</li>
+<li>Validate the identified causes</li>
+</ul>
+<h3 id="handoff">Handoff</h3>
+<ul>
+<li>If you must leave or end your shift, hand off the incident to the new commander. They should be aware of all actions taken, what is to be done next, and be clear that they are not in command.</li>
+</ul>
+<h2 id="monitoring--alerting">Monitoring &amp; Alerting</h2>
+<p>When to bother a human and how to deal with issues that don&rsquo;t need one.</p>
+<ul>
+<li>
+<p>White-box: Monitoring based on metrics exposed by system internals. i.e. logs, http handlers emitting internal stats. Can tell us when we&rsquo;re trending toward problems.</p>
+<ul>
+<li>There is a problem within our system. It may be affecting users right now <em><strong>or</strong></em> it will impact them soon if we don&rsquo;t do something about it.</li>
+<li>Can be symptom or cause (depending on system(s) affected). Proactive.</li>
+</ul>
+</li>
+<li>
+<p>Black-box: Externally visible behaviors as users might see it. Tells us when there is currently a problem visible to our end users.</p>
+<ul>
+<li>There is something wrong with the application right now. i.e. Users cannot load specific paths. We need to respond.</li>
+<li>Diagnoses the symptom. Reactive.</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-monitor">Why monitor?</h3>
+<ul>
+<li>Analyzing long-term trends - How are parts of your application performing or growing over time?</li>
+<li>Comparing over time to experimental groups - Will this new feature improve or degrade the application&rsquo;s historic performance?</li>
+<li>To alert - Something is not working as we expect. We should either fix ASAP or create a ticket if it is not currently broken.</li>
+<li>Dashboards - Answer basic questions about our service. Include some form of Golden signals.</li>
+<li>Ad-hoc retrospective analysis - why did 500 error rates just shoot up? what else happened at the same time?</li>
+</ul>
+<h3 id="humans-when">Humans when?</h3>
+<ul>
+<li>If our system cannot self-heal the specific issue (i.e., auto-scale when traffic is at peak), human intervention is needed.</li>
+</ul>
+<h3 id="keep-it-quiet">Keep it quiet</h3>
+<ul>
+<li>Noise should be low, signal should be high. If it&rsquo;s connected to a pager it should be simple, yet robust. If we alert a human it should be for a clear and very important reason. It should also, ideally, give the human some guidance for resolution whenever possible.</li>
+</ul>
+<h3 id="symptoms-vs-causes">Symptoms vs Causes</h3>
+<p>A monitoring system must address what is broken (the symptom) and why (the cause).
+Examples:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Symptom</th>
+          <th style="text-align: left">Cause</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Increase in 500&rsquo;s</td>
+          <td style="text-align: left">DB servers are refusing connections</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Response times slow</td>
+          <td style="text-align: left">CPU overload or system oom killing too many pods</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Users in Idaho cannot load your application</td>
+          <td style="text-align: left">Blacklisted some client IPs</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="the-four-golden-signals">The Four Golden Signals</h3>
+<ul>
+<li>Latency - time it takes to serve a request. Think of something like request duration for nginx ingress.</li>
+<li>Traffic - measure of how much demand is being placed on your system. So how many requests are we processing for a given service per second?</li>
+<li>Errors - rate of requests that fail explicitly (like 500s), implicitly (like 200s coupled with incorrect content/path), or policy (request came back above acceptable time limit)</li>
+<li>Saturation - how “full” a service is. How many resources are being constrained on the service at a given time. Latency increases are often a marker for saturation of a service.</li>
+</ul>
+<h3 id="worry-about-your-tail">Worry about your tail</h3>
+<ul>
+<li>Measure things like latency in buckets rather than collecting averages or means.</li>
+<li>In order to differentiate between a slow average vs a slow &ldquo;tail&rdquo; of requests is to collect them in buckets by latency.</li>
+<li>The distribution (coupled with 50-99th percentiles) can tell you a lot more.</li>
+</ul>
+<h3 id="keep-it-simple-s">Keep it simple s&hellip;</h3>
+<ul>
+<li>Rules for spotting incidents must be simple, predictable, and reliable.</li>
+<li>Outdated and/or unused configurations should be removed from our system.</li>
+<li>Signals we collect but don&rsquo;t use might need to be removed as well.</li>
+</ul>
+<h3 id="when-creating-monitors-and-alerts-remember">When creating monitors and alerts, remember</h3>
+<ul>
+<li>Does this rule detect an undetected condition which is urgent, actionable, or visible to the user?</li>
+<li>Is this alert ignorable? Why is it an alert?</li>
+<li>Does this alert properly reflect what users are experiencing?</li>
+<li>Can I take some type of action based on this alert?
+<ul>
+<li>Could this action be automated?</li>
+<li>Is this action permanent or temporary?</li>
+</ul>
+</li>
+<li>Are others being paged in addition or myself?
+<ul>
+<li>Can we reduce the number of people paged unnecessarily?</li>
+</ul>
+</li>
+<li>Pagers mean urgent action. There is only energy for so much urgent action in a day before fatigue sets in.</li>
+<li>If it is a page, it must be actionable.</li>
+<li>Page responses should be calls for intelligent action.
+<ul>
+<li>If the response if robotic (or scripted), it should be automated.</li>
+</ul>
+</li>
+<li>Pages should reflect novel problems or event that have never been seen.</li>
+</ul>
+<h3 id="long-term-results-of-monitoring">Long Term Results of Monitoring</h3>
+<ul>
+<li>
+<p>If you are finding certain alerts begin to fire often, it is time to determine the root cause and fix it. If it is not something you can fix, automate it.</p>
+</li>
+<li>
+<p>Prioritize long-term fixes even if it means short-term decreases in availability. Patches simply become tech-debt when teams are unable to prioritize real fixes for these issues.</p>
+</li>
+<li>
+<p>Consider keeping a log of all pages per quarter to get an idea of possible page fatigue in a team or organization.</p>
+</li>
+</ul>
+<h2 id="sli---slo---sla--error-budgets">SLI -&gt; SLO -&gt; SLA (&amp; Error Budgets)</h2>
+<ul>
+<li>
+<p>The basic properties of metrics that matter to us, what values we want them to have, and how we react if we can&rsquo;t provide the level of service we expect. These help us to determine our service is healthy and delivering overall performance expected from our customers.</p>
+</li>
+<li>
+<p>SLIs are a carefully defined, quantitative measure of some piece of the service. i.e. request latency, error rate, availability collected over some measurement window and turned into an average, rate, percentile, etc.</p>
+<ul>
+<li>latency - how long does it takes to return a response to a request</li>
+<li>error rate - a fraction of all request received with non-successful status code</li>
+<li>system throughput - requests per second</li>
+</ul>
+</li>
+<li>
+<p>Availability is the fraction of time that a service is usable. Can be measure in terms of yield (well-formed requests which succeed).</p>
+<ul>
+<li>success measured in terms of 9&rsquo;s we can achieve (100% is impossible).</li>
+<li>99.9-99.9999.</li>
+</ul>
+</li>
+<li>
+<p>SLIs feed into SLOs which are what we set as our target or &ldquo;objective&rdquo; for our SLIs. Our SLO might be that we want to deliver a request latency or less than 100ms for 90% of our users at all times. We need to ensure our SLI&rsquo;s on on pace to meet that requirement.</p>
+<ul>
+<li>We cannot always set an SLO as some things are determined by the user. (Queries per second is purely determined by the user)</li>
+<li>A user starts to perceive latency around 100ms so we want to keep our times below that whenever possible.</li>
+</ul>
+</li>
+<li>
+<p>SLAs implicit or explicitly contracts with end users that include consequences for meeting or missing the SLOs they contain. Consequences can be financial or even reputation damaging.</p>
+</li>
+<li>
+<p>How to tell the difference? If there is no explicit consequence for missing an SLO then it is only an SLO, not an SLA.</p>
+</li>
+</ul>
+<h3 id="what-do-we-and-our-users-really-care-about">What do we and our users really care about?</h3>
+<ul>
+<li>
+<p>Every metric we track will not be an SLI. When we understand what our user want, we can determine our SLIs.</p>
+</li>
+<li>
+<p>Too many indicators lead to lack of attention and too few lead to lack of understanding of system health and performance.</p>
+</li>
+<li>
+<p>Start backwards. Think about your objectives and develop your SLIs to feed into it.</p>
+</li>
+<li>
+<p>Typical Measures:</p>
+<ul>
+<li>User-facing systems (like a web frontend): availability, latency, throughput. Could we respond? How long did it take? How many requests did we handle?</li>
+<li>Storage systems: latency, availability, durability. How long does it take to read/write data? Is the data accessible right when we need it? Is the data <em><strong>still there</strong></em> when we need it?</li>
+</ul>
+</li>
+<li>
+<p>What should all systems care about?</p>
+<ul>
+<li>Correctness. What the right answer returned, the right data retrieved?</li>
+</ul>
+</li>
+</ul>
+<h3 id="measures">Measures</h3>
+<ul>
+<li>Remember to also measure on the client-side. Ensure we collect data from client instead of just focusing on the backend. i.e. How long does it take for a page to become usable in a user&rsquo;s browser? This may indicate problems in my JS if it&rsquo;s slower than expected.</li>
+</ul>
+<h3 id="aggregating-data">Aggregating data</h3>
+<ul>
+<li>
+<p>While the raw data we collect may be simple (requests /s), the way we aggregate this data must be done carefully.</p>
+<ul>
+<li>How are we aggregating this data? Do we obtain it once per second or by averaging requests over a full minute? If it&rsquo;s once per second we may be hiding high instantaneous bursts in request rates that last for only seconds at a time.</li>
+<li>For latency, averaging requests may be appealing but obscures the fact that it is possible for <em><strong>most</strong></em> requests to be fast but a long tail of requests to be much slower, making latency overall seem higher than is true.</li>
+</ul>
+</li>
+<li>
+<p>It is better to think of metrics as distributions than averages.</p>
+<ul>
+<li>Latency SLIs would be better served this way, using percentiles as indicators rather than averages.</li>
+<li>99th percentile - the plausible worst cases, if the 99th percentile is acceptable then user experience is likely good. The same if it is bad.</li>
+<li>50th percentile (the median) - the typical case</li>
+</ul>
+</li>
+<li>
+<p>Keep your SLI definitions standard!</p>
+<ul>
+<li>Ensure you have defined your measures like aggregation intervals, regions, how frequently measures are made, and data-access latency in a way that can be accepted and used by others.</li>
+<li>Saves time understanding what the heck you&rsquo;re looking at for each new indicator.</li>
+<li>Build a set of reusable templates for your most common metrics as it makes it easy for others to implement.</li>
+</ul>
+</li>
+</ul>
+<h3 id="error-budgets">Error Budgets</h3>
+<p>It is not possible (or wise) to attempt to meet SLOs 100% of the time. If we did that, it would mean much more rigid rules for operation and slow our ability to innovate and iterate.</p>
+<ul>
+<li>Error budgets allow us to accept some level of &ldquo;failure&rdquo; in exchange for our ability to move with pace and also deliver value to our customers. These rates at which our SLOs can be missed are tracked on daily -&gt; monthly -&gt; yearly basis.</li>
+<li>Ensure that you do not agree to error budgets which are too low, otherwise you may end up violating your SLOs.</li>
+<li>Develop them in relation to the uptime you desire for your service.
+<ul>
+<li>How much uptime should you have per quarter?</li>
+<li>Ensure your monitoring system can effectively measure your uptime.</li>
+<li>How much <code>unreliability</code> can we accept in a given quarter before it negatively impacts our customers?</li>
+<li>Develop your <code>budget</code>based on the above factors. Then you can manage your release cycle around it.</li>
+</ul>
+</li>
+</ul>
+<h3 id="determining-availability--error-budgets">Determining Availability &amp; Error Budgets</h3>
+<ul>
+<li>Target level of availability for services should be determined based on:
+<ul>
+<li>What do users expect of the service?</li>
+<li>Does this service have direct effect on my revenue?</li>
+<li>Is the service free or paid?</li>
+<li>Are there competitors in the marketplace and what is their level of service?</li>
+<li>Is this service for consumers or enterprises?</li>
+</ul>
+</li>
+</ul>
+<h4 id="error-budget-calculations">Error Budget Calculations:</h4>
+<p><code>time-based availability</code> = <code>uptime / (uptime + downtime)</code></p>
+<ul>
+<li><a href="https://sre.google/sre-book/availability-table/#appendix_table-of-nines">Availability table via Google&rsquo;s SRE Book</a></li>
+</ul>
+<p><code>aggregate availability</code> = <code>successful requests / total requests</code>
+If I have 2.5M requests per day and aim for 99.99% availability I could reasonably have 250 errors and still be within my target for that day. This can be done on a daily/weekly/monthly basis.</p>
+<h3 id="kiss-keep-it-simple-s">KISS (Keep it simple, s&hellip;.)</h3>
+<ul>
+<li>Don&rsquo;t pick your targets based on the current system performance. Base it on what your end user <em><strong>actually</strong></em> needs.</li>
+<li>Don&rsquo;t create complicated aggregations for your SLIs. They need to be simple enough to reason about.</li>
+<li>No absolutes. You are not attempting perfection for any of your objectives. You want performance and happiness for your user.</li>
+<li>The less SLOs the better. Be clear on your objectives so you can actually meet them.</li>
+<li>Embrace change. SLOs can and will change as your system evolves.</li>
+</ul>
+<h3 id="control-measures">Control Measures</h3>
+<ul>
+<li>Monitor your systems SLIs.</li>
+<li>Compare SLIs to SLOs and decide whether action is needed.</li>
+<li>If action is required, you must determine <em><strong>what</strong></em> should be changed in order to meet your targets.</li>
+<li>Take the action.</li>
+</ul>
+<h3 id="conservative-promises-or-broken-promises">Conservative Promises or Broken Promises</h3>
+<ul>
+<li>Your published SLOs and internal SLOs can be different. You can build tighter internal SLOs to ensure you don&rsquo;t breach the advertised ones.</li>
+<li>If your system is meeting expectations, you may not need to put as much effort into improvement. You can shift work to toil reduction and technical debt payoff.</li>
+</ul>
+<h2 id="alerting--priorities">Alerting &amp; Priorities</h2>
+<p>Priority 1</p>
+<ul>
+<li>Must be dealt with immediately</li>
+<li>Pages an on call</li>
+<li>Leads to event triage</li>
+<li>Impacts SLO
+Priority 2</li>
+<li>Can be dealt with next business day</li>
+<li>Not customer facing usually or limited impact scope</li>
+<li>Email or channel alert
+Priority 3</li>
+<li>Event is purely informational, likely gathered in dashboards or passive email</li>
+<li>Includes capacity planning related info</li>
+</ul>
+<h3 id="common-monitors--alerts">Common Monitors &amp; Alerts</h3>
+<ul>
+<li>Target Error Rate ≥ SLO Threshold - choose a time window and alert when error rate exceeds threshold for that window.
+<ul>
+<li>If SLO is 99.9% for 30 days we alert when the rate in the window we deem is above .1%</li>
+</ul>
+</li>
+</ul>
+<h2 id="communication-and-collaboration-for-sres">Communication and Collaboration for SREs</h2>
+<ul>
+<li>Be open. Be available (within reason).</li>
+<li>The most successful SRE teams display the above qualities.
+<ul>
+<li>They are open and excited to collaborate with development teams to improve the health and reliability of their systems.</li>
+<li>They have a clear vision for what they want to deliver and leave room in their road maps for the needs of development teams to seek their assistance. In a perfect world, these road maps are created in collaboration with development teams.</li>
+</ul>
+</li>
+</ul>
+<h2 id="sources">Sources:</h2>
+<ul>
+<li><a href="https://www.atlassian.com/devops/frameworks/sre-vs-devops">SRE vs DevOps (Atlassian)</a></li>
+<li><a href="https://www.ibm.com/think/topics/devops-vs-sre">SRE vs DevOPS (IBM)</a></li>
+<li><a href="https://cloud.google.com/sre?hl=en">SRE (Google)</a></li>
+<li><a href="https://sre.google/sre-book/service-level-objectives/">Service Level Objectives</a></li>
+<li><a href="https://sre.google/sre-book/monitoring-distributed-systems/">Monitoring &amp; Alerting</a></li>
+<li><a href="https://sre.google/sre-book/practical-alerting/">Practical Alerting</a></li>
+<li><a href="https://sre.google/sre-book/managing-incidents/">Incident Management</a></li>
+<li><a href="https://sre.google/sre-book/postmortem-culture/">Postmortem Culture</a></li>
+<li><a href="https://sre.google/workbook/on-call/">On-Call</a></li>
+<li><a href="https://sre.google/workbook/alerting-on-slos/">Alerting on Significant Events</a></li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/notsuoholi" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://linkedin.com/in/oliblaine" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Oli Blaine.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://notsuoholi.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

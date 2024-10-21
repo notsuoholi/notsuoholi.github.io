@@ -6,7 +6,37 @@
     <description>Recent content on Oli&#39;s Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Oct 2024 22:37:15 -0500</lastBuildDate><atom:link href="https://notsuoholi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Oct 2024 22:20:49 -0500</lastBuildDate><atom:link href="https://notsuoholi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SRE - Core Principles</title>
+      <link>https://notsuoholi.github.io/posts/srecore/</link>
+      <pubDate>Wed, 16 Oct 2024 22:20:49 -0500</pubDate>
+      
+      <guid>https://notsuoholi.github.io/posts/srecore/</guid>
+      
+      <description>&lt;p&gt;I have outlined a few of the core responsibilities and practices of Site Reliability Engineers (SREs). Their focus is primarily on operational resilience and reducing toil through automation.&lt;/p&gt;
+&lt;p&gt;My goal was to cover key topics like system reliability, incident management, the importance of metrics like SLIs, SLOs, and SLAs, and how SREs use monitoring and alerting to maintain service performance while collaborating closely with development teams to ensure scalable, predictable, and efficient systems.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>DevOps &amp; Release Management - Core Principles</title>
+      <link>https://notsuoholi.github.io/posts/devopscore/</link>
+      <pubDate>Thu, 10 Oct 2024 22:20:49 -0500</pubDate>
+      
+      <guid>https://notsuoholi.github.io/posts/devopscore/</guid>
+      
+      <description>&lt;p&gt;The below serves to outline some of the key aspects of DevOps and Release Engineering. It is not at all a complete guide but does cover some of the most important components. I will add to is as I continue to dive deeper.&lt;/p&gt;
+&lt;h2 id=&#34;devops---a-delicate-balance-of-development-and-operations&#34;&gt;DevOps - A delicate balance of development and operations.&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A focus on continuous delivery and automation in the software development lifecycle.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Champion guidelines, practices, and culture that aims  to break down the silos which traditionally separate development, operations, networking, and security.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Background</title>
       <link>https://notsuoholi.github.io/pages/background/</link>

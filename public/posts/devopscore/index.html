@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">DevOps &amp; Release Management - Core Principles | Oli&#39;s Workshop</title>
+<meta property="og:title" content="DevOps &amp; Release Management - Core Principles | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="DevOps &amp; Release Management - Core Principles | Oli&#39;s Workshop" />
+<meta itemprop="name" content="DevOps &amp; Release Management - Core Principles | Oli&#39;s Workshop" />
+<meta name="application-name" content="DevOps &amp; Release Management - Core Principles | Oli&#39;s Workshop" />
+<meta property="og:site_name" content="Oli&#39;s Workshop" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="https://notsuoholi.github.io/posts/devopscore/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-10-10T22:20:49-0500 />
+    <meta property="article:published_time" content=2024-10-10T22:20:49-0500 />
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/devopscore/" />
+
+    
+    <meta property="og:article:author" content="Oli Blaine" />
+    <meta property="article:author" content="Oli Blaine" />
+    <meta name="author" content="Oli Blaine" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "DevOps \u0026 Release Management - Core Principles",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-10-10",
+        "description": "",
+        "wordCount":  853 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-10-10",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Oli\u0027s Workshop"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/devopscore/">
+  <meta property="og:site_name" content="Oli&#39;s Workshop">
+  <meta property="og:title" content="DevOps & Release Management - Core Principles">
+  <meta property="og:description" content="The below serves to outline some of the key aspects of DevOps and Release Engineering. It is not at all a complete guide but does cover some of the most important components. I will add to is as I continue to dive deeper.
+DevOps - A delicate balance of development and operations. A focus on continuous delivery and automation in the software development lifecycle.
+Champion guidelines, practices, and culture that aims to break down the silos which traditionally separate development, operations, networking, and security.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-10T22:20:49-05:00">
+    <meta property="article:modified_time" content="2024-10-10T22:20:49-05:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DevOps & Release Management - Core Principles">
+  <meta name="twitter:description" content="The below serves to outline some of the key aspects of DevOps and Release Engineering. It is not at all a complete guide but does cover some of the most important components. I will add to is as I continue to dive deeper.
+DevOps - A delicate balance of development and operations. A focus on continuous delivery and automation in the software development lifecycle.
+Champion guidelines, practices, and culture that aims to break down the silos which traditionally separate development, operations, networking, and security.">
+
+
+    
+
+    <link rel="canonical" href="https://notsuoholi.github.io/posts/devopscore/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://notsuoholi.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "auto" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://notsuoholi.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/background/">
+                        Background
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">DevOps &amp; Release Management - Core Principles</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-10T22:20:49-05:00" itemprop="datePublished"> Oct 10, 2024 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#devops---a-delicate-balance-of-development-and-operations">DevOps - A delicate balance of development and operations.</a></li>
+    <li><a href="#four-pillars-of-devops">Four Pillars of DevOps</a></li>
+    <li><a href="#four-principles-of-release-engineering">Four Principles of Release Engineering</a>
+      <ul>
+        <li><a href="#self-service-model--mindset">Self-Service Model &amp; Mindset</a></li>
+        <li><a href="#moving-at-a-high-velocity">Moving at a High Velocity</a></li>
+        <li><a href="#hermetic-builds">Hermetic Builds</a></li>
+        <li><a href="#enforcement-of-policies--procedures">Enforcement of Policies &amp; Procedures</a></li>
+      </ul>
+    </li>
+    <li><a href="#build-tools-and-config-management">Build Tools and Config Management</a>
+      <ul>
+        <li><a href="#mutable-vs-immutable-infrastructure">Mutable vs Immutable Infrastructure</a></li>
+        <li><a href="#declarative-vs-procedural-build-tools">Declarative vs Procedural Build Tools</a></li>
+        <li><a href="#procedural-tooling-limitations">Procedural Tooling Limitations</a></li>
+      </ul>
+    </li>
+    <li><a href="#sources">Sources:</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>The below serves to outline some of the key aspects of DevOps and Release Engineering. It is not at all a complete guide but does cover some of the most important components. I will add to is as I continue to dive deeper.</p>
+<h2 id="devops---a-delicate-balance-of-development-and-operations">DevOps - A delicate balance of development and operations.</h2>
+<ul>
+<li>
+<p>A focus on continuous delivery and automation in the software development lifecycle.</p>
+</li>
+<li>
+<p>Champion guidelines, practices, and culture that aims  to break down the silos which traditionally separate development, operations, networking, and security.</p>
+</li>
+<li>
+<p>Responsible for delivering the features that improve customer experience alongside developer teams. They keep development cycle moving quickly and efficiently.</p>
+</li>
+<li>
+<p>Ensure there are strategies in place for deploying new releases without causing service interrupts and proper rollback strategies in place for features that do cause issues.</p>
+</li>
+<li>
+<p>Focus Areas:</p>
+<ul>
+<li>DevOps practices and tools (e.g., CI/CD pipelines, infrastructure as code).</li>
+<li>Tools: Docker, Kubernetes, Terraform, AWS, GitOps.</li>
+<li>Cross-collaboration skills (working closely with developers).</li>
+</ul>
+</li>
+</ul>
+<h2 id="four-pillars-of-devops">Four Pillars of DevOps</h2>
+<ul>
+<li>
+<p>Communication</p>
+<ul>
+<li>Constant communication between development and operations teams between planning and release phases.</li>
+<li>This allows impediments to be resolved before they become blockers and improves the overall quality of the release process.</li>
+</ul>
+</li>
+<li>
+<p>Collaboration</p>
+<ul>
+<li>Collaboration between development and operations teams help streamline processes.</li>
+<li>When both are in sync, target infrastructure will be well prepared for incoming changes.</li>
+<li>Helps avoid delays in delivery when well aligned.</li>
+</ul>
+</li>
+<li>
+<p>Automation</p>
+<ul>
+<li>Build processes that are predictable, well-tested, and repeatable allow for stable environments and steady releases.</li>
+<li>Tools like Chef and Puppet for configuration management can be used for this purpose.</li>
+</ul>
+</li>
+<li>
+<p>Monitoring</p>
+<ul>
+<li>Monitoring the process as it has been, as it presently is, and as it could be are all important for improving the overall release process and should be measure regularly to provide inputs for possible improvements.</li>
+</ul>
+</li>
+</ul>
+<h2 id="four-principles-of-release-engineering">Four Principles of Release Engineering</h2>
+<h3 id="self-service-model--mindset">Self-Service Model &amp; Mindset</h3>
+<p>Teams must be self-sufficient to operate at scale.</p>
+<ul>
+<li>Develop a set of best practices and setup tooling which allows for development teams to control and run their own release processes.
+<ul>
+<li>With a highly developed self-service model in place, there is only need for human intervention when problems arise.</li>
+</ul>
+</li>
+</ul>
+<h3 id="moving-at-a-high-velocity">Moving at a High Velocity</h3>
+<ul>
+<li>Build fast and deploy frequently.
+<ul>
+<li>Setup CI/CD pipelines which allow teams to consistently update their codebase and deliver regular, incremental updates to the product on schedules they determine.</li>
+<li>There are several options for CI like Git as well as CD like CircleCI or Github Actions.</li>
+<li>Ensure you have built testing into not only your applications but into your pipelines as well.</li>
+</ul>
+</li>
+</ul>
+<h3 id="hermetic-builds">Hermetic Builds</h3>
+<ul>
+<li>Build tools must ensure consistency and repeatability. It should not matter where you built the new feature (insensitive to libraries and other software on the build machine).</li>
+<li>Build are only dependent on known versions of our build tools like compilers and dependencies like libraries.</li>
+<li>We can <strong>cherry pick</strong> to fix bugs in older releases by rebuilding them at the same revision as that original build and only include specific changes submitted after.</li>
+</ul>
+<h3 id="enforcement-of-policies--procedures">Enforcement of Policies &amp; Procedures</h3>
+<p>Ensure there are security and access control procedures in place which determine who can perform specific operations when running a release.</p>
+<ul>
+<li><em><strong>Gated Operations</strong></em>
+<ul>
+<li>Approving code changes via config files throughout the codebase. Might include something like a CODEOWNERS file which is used for final approvals.</li>
+<li>Specifying actions to be performed during release</li>
+<li>Creating the release</li>
+<li>Approving the proposal for integrating the release</li>
+<li>Deploying the release</li>
+<li>Making changes to build configurations for a project</li>
+</ul>
+</li>
+</ul>
+<h2 id="build-tools-and-config-management">Build Tools and Config Management</h2>
+<h3 id="mutable-vs-immutable-infrastructure">Mutable vs Immutable Infrastructure</h3>
+<p>Infrastructure you build will always be open to change.
+For example, a VM running a specific image or application. If you were only able to make changes to it by completely destroying and recreating it, it would be considered immutable. If you were able to make updates to it, it is considered mutable.</p>
+<p>Tools like Chef, Puppet, and Ansible focus on changes to mutable infrastructure whereas tools such as Terraform and Packer focus on the provisioning and configuration of fresh infrastructure and not focused on change after creation.</p>
+<p>When dealing with mutable infra, it is important to consider drift as infrastructure evolves and changes. With every update, there is more drift in state. With immutable infrastructure, this is not the case.</p>
+<h3 id="declarative-vs-procedural-build-tools">Declarative vs Procedural Build Tools</h3>
+<p>Declarative languages like Terraform, CloudFormation, Puppet, etc. focus on a declarative style of code which specifies the desired end state of your configuration. The tool used is the one to designate how that state will be achieved.</p>
+<p>On the other hand, procedural style tools like Chef and Ansible allow one to write code in a step-by-step approach to achieving the desired state.</p>
+<h3 id="procedural-tooling-limitations">Procedural Tooling Limitations</h3>
+<ul>
+<li>
+<p>They do not capture the current state of infrastructure. Without engineering a solution for capturing state (possibly within another code block) there is no built in method for reading back state for your current infrastructure.</p>
+</li>
+<li>
+<p>Code re-usability is limited. The code you wrote one week before may no longer be relevant for the resource your targeting today.</p>
+</li>
+<li>
+<p>Best used in situations wherein:</p>
+<ul>
+<li>Infrastructure is simple</li>
+<li>State is unimportant (test resources) and orphaned resources cleaned up regularly</li>
+</ul>
+</li>
+</ul>
+<h2 id="sources">Sources:</h2>
+<ul>
+<li><a href="https://sre.google/sre-book/release-engineering/">Release Engineering</a></li>
+<li><a href="https://sre.google/workbook/how-sre-relates/">How SRE Relates to DevOps</a></li>
+<li><a href="https://www.oreilly.com/library/view/effective-devops/9781491926291/">Effective DevOps</a></li>
+<li><a href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#b264">Configuration Management Tools</a></li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/notsuoholi" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://linkedin.com/in/oliblaine" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Oli Blaine.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://notsuoholi.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>
