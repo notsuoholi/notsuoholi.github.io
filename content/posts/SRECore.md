@@ -122,7 +122,7 @@ Examples:
 - In order to differentiate between a slow average vs a slow "tail" of requests is to collect them in buckets by latency. 
 - The distribution (coupled with 50-99th percentiles) can tell you a lot more.
 
-### Keep it simple s...
+### KISS (Keep it simple, s....)
  - Rules for spotting incidents must be simple, predictable, and reliable.
  - Outdated and/or unused configurations should be removed from our system.
  - Signals we collect but don't use might need to be removed as well.
@@ -174,7 +174,7 @@ Examples:
      - User-facing systems (like a web frontend): availability, latency, throughput. Could we respond? How long did it take? How many requests did we handle?
      - Storage systems: latency, availability, durability. How long does it take to read/write data? Is the data accessible right when we need it? Is the data ***still there*** when we need it?
 - What should all systems care about?
-     - Correctness. What the right answer returned, the right data retrieved?
+     - Correctness. Was the right answer returned? Was the right data retrieved?
 
 ### Measures
 - Remember to also measure on the client-side. Ensure we collect data from client instead of just focusing on the backend. i.e. How long does it take for a page to become usable in a user's browser? This may indicate problems in my JS if it's slower than expected.
@@ -237,18 +237,18 @@ If I have 2.5M requests per day and aim for 99.99% availability I could reasonab
 - If your system is meeting expectations, you may not need to put as much effort into improvement. You can shift work to toil reduction and technical debt payoff.
 
 ## Alerting & Priorities
-Priority 1
-- Must be dealt with immediately
-- Pages an on call
-- Leads to event triage
-- Impacts SLO
-Priority 2
-- Can be dealt with next business day
-- Not customer facing usually or limited impact scope
-- Email or channel alert
-Priority 3
-- Event is purely informational, likely gathered in dashboards or passive email
-- Includes capacity planning related info
+- Priority 1
+     - Must be dealt with immediately
+     - Pages an on call
+     - Leads to event triage
+     - Impacts SLO
+- Priority 2
+     - Can be dealt with next business day
+     - Not customer facing usually or limited impact scope
+     - Email or channel alert
+- Priority 3
+     - Event is purely informational, likely gathered in dashboards or passive email
+     - Includes capacity planning related info
 
 ### Common Monitors & Alerts
 - Target Error Rate ≥ SLO Threshold - choose a time window and alert when error rate exceeds threshold for that window.
@@ -260,7 +260,7 @@ Priority 3
      - They are open and excited to collaborate with development teams to improve the health and reliability of their systems. 
      - They have a clear vision for what they want to deliver and leave room in their road maps for the needs of development teams to seek their assistance. In a perfect world, these road maps are created in collaboration with development teams.
 
-## Sources:
+## Sources
 - [SRE vs DevOps (Atlassian)](https://www.atlassian.com/devops/frameworks/sre-vs-devops)
 - [SRE vs DevOPS (IBM)](https://www.ibm.com/think/topics/devops-vs-sre)
 - [SRE (Google)](https://cloud.google.com/sre?hl=en)

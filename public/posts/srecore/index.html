@@ -53,7 +53,7 @@
         },
         "datePublished": "2024-10-16",
         "description": "",
-        "wordCount":  3118 ,
+        "wordCount":  3120 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-10-16",
         "image": {
@@ -227,7 +227,7 @@ stroke-linejoin="round" class="feather feather-home">
         <li><a href="#symptoms-vs-causes">Symptoms vs Causes</a></li>
         <li><a href="#the-four-golden-signals">The Four Golden Signals</a></li>
         <li><a href="#worry-about-your-tail">Worry about your tail</a></li>
-        <li><a href="#keep-it-simple-s">Keep it simple s&hellip;</a></li>
+        <li><a href="#kiss-keep-it-simple-s">KISS (Keep it simple, s&hellip;.)</a></li>
         <li><a href="#when-creating-monitors-and-alerts-remember">When creating monitors and alerts, remember</a></li>
         <li><a href="#long-term-results-of-monitoring">Long Term Results of Monitoring</a></li>
       </ul>
@@ -243,7 +243,7 @@ stroke-linejoin="round" class="feather feather-home">
             <li><a href="#error-budget-calculations">Error Budget Calculations:</a></li>
           </ul>
         </li>
-        <li><a href="#kiss-keep-it-simple-s">KISS (Keep it simple, s&hellip;.)</a></li>
+        <li><a href="#kiss-keep-it-simple-s-1">KISS (Keep it simple, s&hellip;.)</a></li>
         <li><a href="#control-measures">Control Measures</a></li>
         <li><a href="#conservative-promises-or-broken-promises">Conservative Promises or Broken Promises</a></li>
       </ul>
@@ -254,7 +254,7 @@ stroke-linejoin="round" class="feather feather-home">
       </ul>
     </li>
     <li><a href="#communication-and-collaboration-for-sres">Communication and Collaboration for SREs</a></li>
-    <li><a href="#sources">Sources:</a></li>
+    <li><a href="#sources">Sources</a></li>
   </ul>
 </nav>
     </details>
@@ -440,7 +440,7 @@ Examples:</p>
 <li>In order to differentiate between a slow average vs a slow &ldquo;tail&rdquo; of requests is to collect them in buckets by latency.</li>
 <li>The distribution (coupled with 50-99th percentiles) can tell you a lot more.</li>
 </ul>
-<h3 id="keep-it-simple-s">Keep it simple s&hellip;</h3>
+<h3 id="kiss-keep-it-simple-s">KISS (Keep it simple, s&hellip;.)</h3>
 <ul>
 <li>Rules for spotting incidents must be simple, predictable, and reliable.</li>
 <li>Outdated and/or unused configurations should be removed from our system.</li>
@@ -538,7 +538,7 @@ Examples:</p>
 <li>
 <p>What should all systems care about?</p>
 <ul>
-<li>Correctness. What the right answer returned, the right data retrieved?</li>
+<li>Correctness. Was the right answer returned? Was the right data retrieved?</li>
 </ul>
 </li>
 </ul>
@@ -605,7 +605,7 @@ Examples:</p>
 </ul>
 <p><code>aggregate availability</code> = <code>successful requests / total requests</code>
 If I have 2.5M requests per day and aim for 99.99% availability I could reasonably have 250 errors and still be within my target for that day. This can be done on a daily/weekly/monthly basis.</p>
-<h3 id="kiss-keep-it-simple-s">KISS (Keep it simple, s&hellip;.)</h3>
+<h3 id="kiss-keep-it-simple-s-1">KISS (Keep it simple, s&hellip;.)</h3>
 <ul>
 <li>Don&rsquo;t pick your targets based on the current system performance. Base it on what your end user <em><strong>actually</strong></em> needs.</li>
 <li>Don&rsquo;t create complicated aggregations for your SLIs. They need to be simple enough to reason about.</li>
@@ -626,19 +626,28 @@ If I have 2.5M requests per day and aim for 99.99% availability I could reasonab
 <li>If your system is meeting expectations, you may not need to put as much effort into improvement. You can shift work to toil reduction and technical debt payoff.</li>
 </ul>
 <h2 id="alerting--priorities">Alerting &amp; Priorities</h2>
-<p>Priority 1</p>
+<ul>
+<li>Priority 1
 <ul>
 <li>Must be dealt with immediately</li>
 <li>Pages an on call</li>
 <li>Leads to event triage</li>
-<li>Impacts SLO
-Priority 2</li>
+<li>Impacts SLO</li>
+</ul>
+</li>
+<li>Priority 2
+<ul>
 <li>Can be dealt with next business day</li>
 <li>Not customer facing usually or limited impact scope</li>
-<li>Email or channel alert
-Priority 3</li>
+<li>Email or channel alert</li>
+</ul>
+</li>
+<li>Priority 3
+<ul>
 <li>Event is purely informational, likely gathered in dashboards or passive email</li>
 <li>Includes capacity planning related info</li>
+</ul>
+</li>
 </ul>
 <h3 id="common-monitors--alerts">Common Monitors &amp; Alerts</h3>
 <ul>
@@ -658,7 +667,7 @@ Priority 3</li>
 </ul>
 </li>
 </ul>
-<h2 id="sources">Sources:</h2>
+<h2 id="sources">Sources</h2>
 <ul>
 <li><a href="https://www.atlassian.com/devops/frameworks/sre-vs-devops">SRE vs DevOps (Atlassian)</a></li>
 <li><a href="https://www.ibm.com/think/topics/devops-vs-sre">SRE vs DevOPS (IBM)</a></li>
