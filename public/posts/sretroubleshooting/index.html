@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Troubleshooting as an SRE | Oli&#39;s Workshop</title>
+<meta property="og:title" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
+<meta itemprop="name" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
+<meta name="application-name" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
+<meta property="og:site_name" content="Oli&#39;s Workshop" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="https://notsuoholi.github.io/posts/sretroubleshooting/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-10-26T15:36:20-0500 />
+    <meta property="article:published_time" content=2024-10-26T15:36:20-0500 />
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/sretroubleshooting/" />
+
+    
+    <meta property="og:article:author" content="Oli Blaine" />
+    <meta property="article:author" content="Oli Blaine" />
+    <meta name="author" content="Oli Blaine" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Troubleshooting as an SRE",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-10-26",
+        "description": "",
+        "wordCount":  981 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-10-26",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Oli\u0027s Workshop"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/sretroubleshooting/">
+  <meta property="og:site_name" content="Oli&#39;s Workshop">
+  <meta property="og:title" content="Troubleshooting as an SRE">
+  <meta property="og:description" content="Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.
+General Troubleshooting Method 1. The Problem Report A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).
+What does this problem report tell us about the expected behavior of the service? What does it tell us about the actual behavior of the service at present.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-26T15:36:20-05:00">
+    <meta property="article:modified_time" content="2024-10-26T15:36:20-05:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Troubleshooting as an SRE">
+  <meta name="twitter:description" content="Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.
+General Troubleshooting Method 1. The Problem Report A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).
+What does this problem report tell us about the expected behavior of the service? What does it tell us about the actual behavior of the service at present.">
+
+
+    
+
+    <link rel="canonical" href="https://notsuoholi.github.io/posts/sretroubleshooting/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://notsuoholi.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "auto" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://notsuoholi.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/background/">
+                        Background
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Troubleshooting as an SRE</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-26T15:36:20-05:00" itemprop="datePublished"> Oct 26, 2024 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#general-troubleshooting-method">General Troubleshooting Method</a>
+      <ul>
+        <li><a href="#1-the-problem-report">1. The Problem Report</a></li>
+        <li><a href="#2-triage">2. Triage</a>
+          <ul>
+            <li><a href="#options-for-triage">Options for Triage</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-examine">3. Examine</a></li>
+        <li><a href="#4-diagnose">4. Diagnose</a>
+          <ul>
+            <li><a href="#where-what-why">Where, What, Why?</a></li>
+          </ul>
+        </li>
+        <li><a href="#5-test--treat">5. Test &amp; Treat</a>
+          <ul>
+            <li><a href="#experiment-and-test">Experiment and test.</a></li>
+            <li><a href="#cure">Cure</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.</p>
+<h2 id="general-troubleshooting-method">General Troubleshooting Method</h2>
+<h3 id="1-the-problem-report">1. The Problem Report</h3>
+<p>A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).</p>
+<p>What does this problem report tell us about the expected behavior of the service? What does it tell us about the <em><strong>actual</strong></em> behavior of the service at present.</p>
+<ul>
+<li>Does it include steps I might take to reproduce the issue or is it something more vague?</li>
+<li>Are we tracking this report somewhere? i.e. JIRA, OpsGenie, AlertManager, etc.</li>
+</ul>
+<h3 id="2-triage">2. Triage</h3>
+<p>Now that we have a better understanding of the report, we need to gain an understanding of the problem&rsquo;s severity. Is this a Sev1 or Sev2 incident? If so, it is time to declare the incident and start an incident document and log our findings and attempts at resolution, including a timeline.</p>
+<p>If possible, delegate the task of maintaining the timeline to another person present for triage. The person(s) handling incident operations should maintain a separate document with their experiments and findings which can be linked to from the incident document.</p>
+<ul>
+<li><strong>sev1 - widespread outage</strong></li>
+<li><strong>sev2 - outage localized to a subsection of our service or degraded service performance</strong></li>
+</ul>
+<p>If it is anything less than those, we should ensure we create a ticket and start a document where we can track findings on this particular issue.</p>
+<p><strong>Note:</strong> It is acceptable to begin taking a look at monitors, metrics, and system logs to find out the severity of an issue and to get clues on which method you might take to triage. Once you find a method for triage, it is important to apply that patch before continuing to root cause.</p>
+<h4 id="options-for-triage">Options for Triage</h4>
+<p>Even though it is tempting to jump headfirst into investigating the issue, it is better to see how we can limit the current impact of the outage. If the issue is not currently causing any widespread issues, you may skip this step and move onto examination.</p>
+<p>There are several options for limiting the impact of an outage. If we are experiencing an issue which affects one or several parts of our service it is wise to start at a high level by inspecting the incident report for clues as to which service(s) is most heavily affected. Strategies we might try include (but are not limited to):</p>
+<ul>
+<li>Have there been any recent changes to the service? Is it possible for us to roll them back quickly? We can try to find change windows and analyze behaviors before and after a deployment/release.</li>
+<li>Load Shedding &amp; Rate Limiting
+<ul>
+<li>Rate limiting - Rejecting certain requests above a given threshold if the service is overloaded so we avoid a total failure.</li>
+</ul>
+</li>
+<li>Graceful Degradation
+<ul>
+<li>Serving degraded results if the service is overloaded so as to decrease likelihood of all out failure.</li>
+</ul>
+</li>
+<li>Retry Policies
+<ul>
+<li>Limiting the retries attempted per failed requests can prevent us from getting into a cycle of <code>failures -&gt; retries</code> which steadily increases queue and the amount of pressure put on an already overwhelmed service. Consider when retries are necessary and when they are not.</li>
+</ul>
+</li>
+<li>When/Where to Retry
+<ul>
+<li>Client-side errors: These errors usually indicate issues with the request itself, such as invalid input or authentication problems, and should not be retried.</li>
+<li>Server-side errors: These errors often indicate temporary issues on the server, such as overload or downtime, and are suitable candidates for retry attempts.</li>
+<li>Transient errors: Errors like network timeouts or rate limiting by cloud services are often temporary and can be resolved with retries.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-examine">3. Examine</h3>
+<p>Once we have triaged (stopped the bleeding!) we may move to a deeper examination of the problem. We must as ourselves what this piece of the system is <em><strong>supposed</strong></em> to do? And what is it <em><strong>actually</strong></em> doing? The incident report gives us a slight clue into where the issue is as well as our triage steps.</p>
+<p>We should now be examining:</p>
+<ul>
+<li>Service/application metrics with monitoring tools like Prometheus, Grafana, DataDog, etc.
+<ul>
+<li>What do our error rates look like for the service? Is there an increase in query or request latency?</li>
+</ul>
+</li>
+<li>Service logs for detailed views into what is happening in each the services upstream and downstream.</li>
+<li>Traces give us a view into the journey a particular request&rsquo;s journey through the system and where it ran into errors/issues.</li>
+</ul>
+<h3 id="4-diagnose">4. Diagnose</h3>
+<ul>
+<li>Look at the connections between components in the system. How does data normally flow between them, is there an issue with this flow?</li>
+<li>Use test data to check that outputs are as expected and further examine when they are not.</li>
+<li>Test components piece by piece, whether via a top-down approach, bisection, or a combination of both. Rule out hypothesis section by section until you have narrowed it to a few or one component.</li>
+</ul>
+<h4 id="where-what-why">Where, What, Why?</h4>
+<ul>
+<li>What is the malfunctioning system doing?</li>
+<li>Where</li>
+</ul>
+<h3 id="5-test--treat">5. Test &amp; Treat</h3>
+<h4 id="experiment-and-test">Experiment and test.</h4>
+<pre><code>- Perform the quick/obvious tests first.
+    - Are we failing to connect to a database? Test the connection to your DB from inside a running pod rather than looking at configuration code first.
+</code></pre>
+<ul>
+<li>Document which ideas you had, how you tested them, and what the results of each test were.
+<ul>
+<li>If you have any visualizations to pair with these tests that increases the usefulness of this documentation tenfold.
+Do NOT discount the value of a negative test. Getting a result we did not expect can push us closer to the correct answer and possibly surface issues we were unaware of.</li>
+</ul>
+</li>
+</ul>
+<h4 id="cure">Cure</h4>
+<ul>
+<li>After narrowing down the cause(s) of the problem, we apply the fix(es) and complete our documentation (Postmortem).</li>
+<li>A good postmortem covers:
+<ul>
+<li>What went wrong?</li>
+<li>How did we track the problem?</li>
+<li>How did we fix the problem?</li>
+<li>How do we prevent it from re-occurring?</li>
+</ul>
+</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<p><a href="https://sre.google/sre-book/effective-troubleshooting/">Effective Troubleshooting</a>
+<a href="https://sre.google/sre-book/addressing-cascading-failures/">Cascading Failures</a>
+<a href="https://sre.google/sre-book/managing-incidents/">Incident Management</a>
+<a href="https://sre.google/sre-book/emergency-response/">Emergency Response</a></p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/notsuoholi" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://linkedin.com/in/oliblaine" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Oli Blaine.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://notsuoholi.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

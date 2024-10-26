@@ -8,6 +8,21 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Oct 2024 15:36:20 -0500</lastBuildDate><atom:link href="https://notsuoholi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Troubleshooting as an SRE</title>
+      <link>https://notsuoholi.github.io/posts/sretroubleshooting/</link>
+      <pubDate>Sat, 26 Oct 2024 15:36:20 -0500</pubDate>
+      
+      <guid>https://notsuoholi.github.io/posts/sretroubleshooting/</guid>
+      
+      <description>&lt;p&gt;Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.&lt;/p&gt;
+&lt;h2 id=&#34;general-troubleshooting-method&#34;&gt;General Troubleshooting Method&lt;/h2&gt;
+&lt;h3 id=&#34;1-the-problem-report&#34;&gt;1. The Problem Report&lt;/h3&gt;
+&lt;p&gt;A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).&lt;/p&gt;
+&lt;p&gt;What does this problem report tell us about the expected behavior of the service? What does it tell us about the &lt;em&gt;&lt;strong&gt;actual&lt;/strong&gt;&lt;/em&gt; behavior of the service at present.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Security and YOU (the SRE)</title>
       <link>https://notsuoholi.github.io/posts/sresecurity/</link>
       <pubDate>Mon, 21 Oct 2024 02:01:54 -0500</pubDate>
