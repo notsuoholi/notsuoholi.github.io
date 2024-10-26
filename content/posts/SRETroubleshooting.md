@@ -1,7 +1,7 @@
 +++
 title = 'Troubleshooting as an SRE'
 date = 2024-10-26T15:36:20-05:00
-draft = true
+draft = false
 +++
 Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.
 
