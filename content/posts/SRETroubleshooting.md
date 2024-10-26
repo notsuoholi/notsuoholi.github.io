@@ -75,3 +75,9 @@ Do NOT discount the value of a negative test. Getting a result we did not expect
     - How did we track the problem?
     - How did we fix the problem?
     - How do we prevent it from re-occurring?
+
+## Sources
+[Effective Troubleshooting](https://sre.google/sre-book/effective-troubleshooting/)
+[Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/)
+[Incident Management](https://sre.google/sre-book/managing-incidents/)
+[Emergency Response](https://sre.google/sre-book/emergency-response/)
