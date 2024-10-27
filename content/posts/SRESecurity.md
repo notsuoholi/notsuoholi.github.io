@@ -1,6 +1,6 @@
 +++
 title = 'Security and YOU (the SRE)'
-date = 2024-10-21T02:01:54-05:00
+date = 2024-10-21
 draft = false
 +++
 Though it may seem as though security might not need to be at the forefront of an SRE's mind, the reality couldn't be more different.
@@ -126,7 +126,7 @@ Certificates enable us to encrypt data in transit and protect against the exposu
 - Let's Encrypt - Free and automated cert authority which provides SSL/TLS certs. It allows one to obtain certs quickly and renew them automatically which ensures secure HTTPS connections to public addresses.
 - OpenSSL - Used for generating SSL/TLS certs. Can be self-signed as well as signed by an authority. This gives it the flexibility to be used for creating certs for internal services or test environments.
 
-## Sources:
+## Sources
 - [Security in SRE](https://medium.com/wanna-know-whats-next/security-with-sre-7891c4af24fd)
 - [Security Engineering Notes](https://github.com/gracenolan/Notes/blob/master/interview-study-notes-for-security-engineering.md#networking)
 - [AWS Incident Response](https://github.com/aws-samples/aws-incident-response-playbooks/blob/master/playbooks/IRP-DoS.md)

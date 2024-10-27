@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Telemetry, An Introduction | Oli&#39;s Workshop</title>
+<meta property="og:title" content="Telemetry, An Introduction | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="Telemetry, An Introduction | Oli&#39;s Workshop" />
+<meta itemprop="name" content="Telemetry, An Introduction | Oli&#39;s Workshop" />
+<meta name="application-name" content="Telemetry, An Introduction | Oli&#39;s Workshop" />
+<meta property="og:site_name" content="Oli&#39;s Workshop" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="https://notsuoholi.github.io/posts/intrototelemetry/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/intrototelemetry/" />
+
+    
+    <meta property="og:article:author" content="Oli Blaine" />
+    <meta property="article:author" content="Oli Blaine" />
+    <meta name="author" content="Oli Blaine" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Telemetry, An Introduction",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-10-27",
+        "description": "",
+        "wordCount":  1084 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-10-27",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Oli\u0027s Workshop"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/intrototelemetry/">
+  <meta property="og:site_name" content="Oli&#39;s Workshop">
+  <meta property="og:title" content="Telemetry, An Introduction">
+  <meta property="og:description" content="What is Telemetry? The process of collecting and analyzing data from various sources to gain insights into our system’s overall performance. It’s critical to our decision making process and helps us with monitoring and measuring the observability of our system.
+Telemetry vs Monitoring Monitoring has a much narrower focus. The main objective one has for monitoring a system is to detect for potential issues and determine which actions to take to avoid or resolve incidents and escalations. Typical measures include metrics for resource usage and networking activity.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-27T00:00:00+00:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Telemetry, An Introduction">
+  <meta name="twitter:description" content="What is Telemetry? The process of collecting and analyzing data from various sources to gain insights into our system’s overall performance. It’s critical to our decision making process and helps us with monitoring and measuring the observability of our system.
+Telemetry vs Monitoring Monitoring has a much narrower focus. The main objective one has for monitoring a system is to detect for potential issues and determine which actions to take to avoid or resolve incidents and escalations. Typical measures include metrics for resource usage and networking activity.">
+
+
+    
+
+    <link rel="canonical" href="https://notsuoholi.github.io/posts/intrototelemetry/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://notsuoholi.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "auto" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://notsuoholi.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/background/">
+                        Background
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Telemetry, An Introduction</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-27T00:00:00&#43;00:00" itemprop="datePublished"> Oct 27, 2024 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-telemetry">What <em><strong>is</strong></em> Telemetry?</a>
+      <ul>
+        <li><a href="#telemetry-vs-monitoring">Telemetry vs Monitoring</a></li>
+        <li><a href="#telemetry-types">Telemetry Types</a></li>
+        <li><a href="#gathering-telemetry-data-melt">Gathering Telemetry Data (MELT)</a></li>
+        <li><a href="#using-telemetry">Using Telemetry</a></li>
+        <li><a href="#telemetry-challenges">Telemetry Challenges</a></li>
+        <li><a href="#next-articleintro-to-opentelemetryintrotoopentelemetry"><a href="IntroToOpenTelemetry">Next Article&hellip;(Intro to OpenTelemetry)</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#sources">Sources:</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <h2 id="what-is-telemetry">What <em><strong>is</strong></em> Telemetry?</h2>
+<p>The process of collecting and analyzing data from various sources to gain insights into our system&rsquo;s overall performance. It&rsquo;s critical to our decision making process and helps us with monitoring and measuring the observability of our system.</p>
+<h3 id="telemetry-vs-monitoring">Telemetry vs Monitoring</h3>
+<ul>
+<li>
+<p>Monitoring has a much narrower focus. The main objective one has for monitoring a system is to detect for potential issues and determine which actions to take to avoid or resolve incidents and escalations. Typical measures include metrics for resource usage and networking activity.</p>
+</li>
+<li>
+<p>Telemetry collects and analyzes data for a broader range of purposes. Ranging from troubleshooting to understanding user behaviors and system performance. It also uses a wider subset of metrics to gather and analyze said data.</p>
+</li>
+</ul>
+<p>Monitoring is effectively a subset of telemetry.</p>
+<h3 id="telemetry-types">Telemetry Types</h3>
+<p>There are many type of telemetry data one can measure an any IT System. These include things such as error rates, response times (latency), CPU and memory usage, disk I/O, and network throughput.</p>
+<ul>
+<li>
+<p>User Telemetry Data</p>
+<ul>
+<li>We can collect data about the users who engage with our product by collecting data on certain clicks, logins, page views, or page errors.</li>
+</ul>
+</li>
+<li>
+<p>Network Telemetry Data</p>
+<ul>
+<li>We can collect data on bandwidth, networking ports, devices, uptime for devices used, etc.</li>
+</ul>
+</li>
+<li>
+<p>Application Infrastructure Telemetry Data</p>
+<ul>
+<li>Typically, we include latency data, transaction and/or query volume (per second/minute format), database access, application error volume, deployment errors, etc.</li>
+<li>We might also be interested in understanding who is interacting with our application and in which ways.
+<ul>
+<li>Data around IP addresses, regions, OS types, and browser type/version give us insight into these areas.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="gathering-telemetry-data-melt">Gathering Telemetry Data (MELT)</h3>
+<p>Metrics - A numeric value measured over an interval of time. Includes attributes such as timestamp, event name, and a value related to that event.</p>
+<ul>
+<li>These are structured by default and easier to query.</li>
+<li>Because of their small size, they optimal for long term storage and can be used to understand a system&rsquo;s historical trends.</li>
+<li>They are best used for large data sets or data collected at regular intervals which aim to answer specific questions.
+<ul>
+<li>i.e. - How much CPU is utilized for a given service during a specific window of time? How many errors occurred during a peak traffic window for a given service?</li>
+</ul>
+</li>
+</ul>
+<p>Events - A record of a <strong>significant</strong> occurrence or change within a system/application.</p>
+<ul>
+<li>They represent distinct points in time which capture specific system activities, changes in state, or user actions.
+<ul>
+<li>They focus on particular moments or actions like service deployments, errors, user sign-ins, HTTP requests/responses, etc.</li>
+</ul>
+</li>
+<li>They give us context for the metric data we gather at any given time.</li>
+</ul>
+<p>Logs - A text record of an event that happened at a particular point in time. They&rsquo;re considered the source of truth for what an application (and its underlying services) is <em><strong>actually</strong></em> doing. They come in three formats:</p>
+<p>Plain text - the most common type, simplistic format</p>
+<pre tabindex="0"><code>2024-10-26 12:00:00 INFO User login successful: user_id=12345
+</code></pre><p>Structured - Becoming more standard as they are more easily queried. Usually follow a JSON or key-value format.</p>
+<pre tabindex="0"><code>{
+&#34;timestamp&#34;: &#34;2024-10-26T12:00:00Z&#34;,
+&#34;level&#34;: &#34;INFO&#34;,
+&#34;event&#34;: &#34;UserLogin&#34;,
+&#34;user_id&#34;: 12345,
+&#34;ip_address&#34;: &#34;192.168.1.100&#34;,
+&#34;message&#34;: &#34;User login successful&#34;
+}
+</code></pre><p>Unstructured - These do not follow a standardized format. They are less common and more difficult to parse but more human-readable.</p>
+<pre tabindex="0"><code>User login attempt from IP 192.168.1.100 at 2024-10-26 12:00:00: success for user 12345
+</code></pre><p>Traces - A representation of the end-to-end journey of a request through a distributed system. Because many operations are performed for any single request, each request is encoded with important data (a span) which includes the trace ID, span ID, operation name, start/end timestamp, logs, events, and other indexed info.</p>
+<ul>
+<li>Traces are incredibly powerful in that they allow us to identify, for any given request, which part of your application ran into errors or degraded performance.</li>
+<li>They are integral to diagnosing and resolving problems in distributed systems.</li>
+</ul>
+<h3 id="using-telemetry">Using Telemetry</h3>
+<p>Data we gather through telemetry can help us answer many questions and improve our system.</p>
+<ul>
+<li>
+<p>Feature Development</p>
+<ul>
+<li>Telemetry data gives us clearer insight into the least and most used features of our products by end users.</li>
+<li>This information helps us determine which parts of our application to focus on for improvements and enhancements and which we might want reduce in size or drop entirely.</li>
+</ul>
+</li>
+<li>
+<p>Identifying Problems</p>
+<ul>
+<li>This is one of the most common uses in telemetry data and is usually associated with monitoring.</li>
+<li>If we can reveal problems within our application like slowdowns and errors before they become serious problems for our users the we are using this data to the best of our abilities.</li>
+</ul>
+</li>
+<li>
+<p>Performance Optimization</p>
+<ul>
+<li>Identifying bottlenecks and performance issues is another key use of telemetry data.</li>
+<li>Which pages are slow to load, which functions which trigger queries to our DBs are slow to run? Identifying these issues will give us clear areas to focus improvement efforts.</li>
+</ul>
+</li>
+<li>
+<p>Change Validation</p>
+<ul>
+<li>Part of developing and maintaining a product is continuously enhancing and improving it.</li>
+<li>We can use telemetry data validate whether we are improving our application with changes or introducing additional complexity with no benefit.</li>
+</ul>
+</li>
+<li>
+<p>Security</p>
+<ul>
+<li>Telemetry data plays a vital role in system security. If we have insight into expected usage patterns, we can alert on anomalies in that data to call out potential threats, intrusions, and abuse.</li>
+</ul>
+</li>
+</ul>
+<h3 id="telemetry-challenges">Telemetry Challenges</h3>
+<p>While telemetry data is essential for understanding and improving our application, it is not without challenges.</p>
+<ul>
+<li>Data Privacy
+<ul>
+<li>Collecting information such as IP addresses may raise privacy concerns as this and other sensitive user information should be handled according to whichever data privacy regulations and guidelines your specific application must adhere to.</li>
+</ul>
+</li>
+<li>Volume of Data &amp; Analysis
+<ul>
+<li>Telemetry generates a host of data and as your system grows, so does the amount data you collect and measure.</li>
+<li>You must ensure you are able to scale and handle increased data volume in a reliable and cost effective manner.</li>
+<li>Analyzing this large volume of data also produces significant challenge. The tools you use to analyze the data you collect must work for your purpose and scale for you to gain meaningful insight from the data collected.</li>
+</ul>
+</li>
+<li>Data Integrity and Interoperability
+<ul>
+<li>Because telemetry data can be collected from a variety of interconnected systems, it is important to ensure the data collected remains as consistent as possible.</li>
+<li>Sanitize the data you collect by removing incomplete data and inaccurate data. If you&rsquo;ve instrumented an observability framework such as OpenTelemetry, a lot of this is  already built in.</li>
+</ul>
+</li>
+</ul>
+<h3 id="next-articleintro-to-opentelemetryintrotoopentelemetry"><a href="/posts/introtoopentelemetry/">Next Article&hellip;(Intro to OpenTelemetry)</a></h3>
+<h2 id="sources">Sources:</h2>
+<p><a href="https://www.splunk.com/en_us/blog/learn/what-is-telemetry.html">Telemetry 101</a>
+<a href="https://www.splunk.com/en_us/blog/learn/opentelemetry.html">What is OTEL</a>
+<a href="https://www.splunk.com/en_us/blog/learn/observability-vs-monitoring-vs-telemetry.html">Monitoring vs Telemetry vs Observability</a>
+<a href="https://www.splunk.com/en_us/blog/learn/melt-metrics-events-logs-traces.html">MELT</a></p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/notsuoholi" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://linkedin.com/in/oliblaine" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Oli Blaine.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://notsuoholi.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

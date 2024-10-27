@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Establishing Reliability, a High Level Overview | Oli&#39;s Workshop</title>
+<meta property="og:title" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
+<meta itemprop="name" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
+<meta name="application-name" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
+<meta property="og:site_name" content="Oli&#39;s Workshop" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="https://notsuoholi.github.io/posts/establishingreliability/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/establishingreliability/" />
+
+    
+    <meta property="og:article:author" content="Oli Blaine" />
+    <meta property="article:author" content="Oli Blaine" />
+    <meta name="author" content="Oli Blaine" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Establishing Reliability, a High Level Overview",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-10-27",
+        "description": "",
+        "wordCount":  693 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-10-27",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Oli\u0027s Workshop"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+    <meta property="og:url" content="https://notsuoholi.github.io/posts/establishingreliability/">
+  <meta property="og:site_name" content="Oli&#39;s Workshop">
+  <meta property="og:title" content="Establishing Reliability, a High Level Overview">
+  <meta property="og:description" content="This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system. Below are links to the other articles in this series.
+Establishing Reliability (this article) Intro to Telemetry Intro to OpenTelemetry Intro to Monitoring and Observability Defining Reliability for Your System Note: Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-27T00:00:00+00:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Establishing Reliability, a High Level Overview">
+  <meta name="twitter:description" content="This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system. Below are links to the other articles in this series.
+Establishing Reliability (this article) Intro to Telemetry Intro to OpenTelemetry Intro to Monitoring and Observability Defining Reliability for Your System Note: Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.">
+
+
+    
+
+    <link rel="canonical" href="https://notsuoholi.github.io/posts/establishingreliability/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://notsuoholi.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "auto" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://notsuoholi.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/background/">
+                        Background
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Establishing Reliability, a High Level Overview</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-27T00:00:00&#43;00:00" itemprop="datePublished"> Oct 27, 2024 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#questions-to-ask">Questions to Ask</a></li>
+    <li><a href="#understand-your-needs">Understand Your Needs</a></li>
+    <li><a href="#select-tooling">Select Tooling</a></li>
+    <li><a href="#scheduling--slas---slos---slis">Scheduling &amp; SLAs -&gt; SLOs -&gt; SLIs</a></li>
+    <li><a href="#monitoring---establishing-a-baseline">Monitoring - Establishing a Baseline</a>
+      <ul>
+        <li><a href="#melt---setup-telemetry--monitoring-for-priority-1-and-beyond">MELT - Setup Telemetry &amp; Monitoring for Priority 1 and Beyond</a></li>
+        <li><a href="#automation">Automation</a></li>
+      </ul>
+    </li>
+    <li><a href="#perform-production-readiness-reviews">Perform Production Readiness Reviews</a></li>
+    <li><a href="#document-and-plan">Document and Plan</a></li>
+    <li><a href="#incident-management">Incident Management</a>
+      <ul>
+        <li><a href="#next-articleintro-to-telemetrypostsintrototelemetry"><a href="../posts/IntroToTelemetry">Next Article&hellip;(Intro to Telemetry)</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system. Below are links to the other articles in this series.</p>
+<ol>
+<li>Establishing Reliability (this article)</li>
+<li>Intro to Telemetry
+<ul>
+<li>Intro to OpenTelemetry</li>
+</ul>
+</li>
+<li>Intro to Monitoring and Observability</li>
+<li>Defining Reliability for Your System</li>
+</ol>
+<p><strong>Note:</strong> Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.</p>
+<h2 id="questions-to-ask">Questions to Ask</h2>
+<ul>
+<li>Are all services within the system observable?
+<ul>
+<li>Are we using a well-known framework or standard? (i.e. OpenTelemetry)</li>
+</ul>
+</li>
+<li>How do we configure our Infrastructure?
+<ul>
+<li>IaC or manual config?</li>
+<li>Can we identify any areas we may want to measure based on configuration?</li>
+</ul>
+</li>
+<li>Have all previous outage causes or potential issues been identified and fixed?
+<ul>
+<li>If these above have not been fixed are they properly documented and work tracked?</li>
+<li>Is there tech debt to consider?</li>
+</ul>
+</li>
+</ul>
+<h2 id="understand-your-needs">Understand Your Needs</h2>
+<p>If you are building reliability and observability into a system, it is most important to lean on the SMEs from your development teams and platform engineering teams. They are the people who understand the system you are to measure.</p>
+<p>Together, you must answer the questions laid out <a href="/posts/establishingreliability/#questions-to-ask">above</a>.</p>
+<h2 id="select-tooling">Select Tooling</h2>
+<p>Once you have a better understanding of the questions you need to answer, you can determine the tool which will best help you answer them. Select the tool which fits your needs best and allows you to unify data from several sources.</p>
+<h2 id="scheduling--slas---slos---slis">Scheduling &amp; SLAs -&gt; SLOs -&gt; SLIs</h2>
+<p>Work with each team on a rotating schedule to continue to develop an understanding of each piece of the system and its needs.</p>
+<ul>
+<li>
+<p>Determine your SLAs, SLOs, and SLIs based on the information you can now gather from your system. It is worth asking yourself the following questions:</p>
+<ul>
+<li>Do we have a solid understanding of our customer&rsquo;s needs?</li>
+<li>What would need to be present, at minimum, for our customers consider our system performant?
+<ul>
+<li>Do we have observability built into each of those parts?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>This time should also be used to educate teams on what behaviors their part of the application exhibits with the telemetry data currently being collected and where potential gaps lie.</p>
+</li>
+</ul>
+<h2 id="monitoring---establishing-a-baseline">Monitoring - Establishing a Baseline</h2>
+<h3 id="melt---setup-telemetry--monitoring-for-priority-1-and-beyond">MELT - Setup Telemetry &amp; Monitoring for Priority 1 and Beyond</h3>
+<ul>
+<li>MELT (metrics, events, logs, traces) must be in place for the services deemed priority one for our system.
+<ul>
+<li>Install collection agents and operator/APM agents in all relevant environments.</li>
+</ul>
+</li>
+<li>Repeat this step for all services which your P1 service depends on or interacts with.
+<ul>
+<li>There may be parts of your system which rely on services you do not have control over or cannot instrument. Try to limit how often this is the case and try to remove single points of failure when it is.</li>
+</ul>
+</li>
+</ul>
+<h3 id="automation">Automation</h3>
+<ul>
+<li>Automate, automate, automate
+<ul>
+<li>As you move through the system, set patterns and automate repeatable processes where you can.
+<ul>
+<li>Identify common monitors and metrics you want to surface for all your services and create templates rather than starting from scratch each time you onboard new services.</li>
+</ul>
+</li>
+<li>What you build should be simple, understandable, and reusable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="perform-production-readiness-reviews">Perform Production Readiness Reviews</h2>
+<p>I won&rsquo;t go into details on this as the Google SRE book gives what I (and most industry professionals) feel is a great introduction and example of PRRs and their implementation. This process should be tailored to the needs of the business and agreed to by the development teams.
+<a href="https://sre.google/sre-book/evolving-sre-engagement-model/">SRE Engagement Model and PRRs</a></p>
+<h2 id="document-and-plan">Document and Plan</h2>
+<p>The development teams will be responsible for the documentation and monitoring of their services and therefore must be the authors of documentation and SLAs for them.</p>
+<ul>
+<li>Work with them to produce these documents and generate reusable guidelines for managing them going forward.</li>
+<li>Agree on and implement a plan to improve observability as the system evolves and grows in complexity.</li>
+</ul>
+<h2 id="incident-management">Incident Management</h2>
+<p>After completing the above for all relevant, high priority services, you can start putting together processes for incident response. These processes should be automated whenever possible.</p>
+<h3 id="next-articleintro-to-telemetrypostsintrototelemetry"><a href="/posts/intrototelemetry/">Next Article&hellip;(Intro to Telemetry)</a></h3>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/notsuoholi" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://linkedin.com/in/oliblaine" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Oli Blaine.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://notsuoholi.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

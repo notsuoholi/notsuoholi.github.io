@@ -2,23 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://notsuoholi.github.io/posts/definingreliability/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://notsuoholi.github.io/posts/establishingreliability/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://notsuoholi.github.io/posts/introtoopentelemetry/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://notsuoholi.github.io/posts/introtomonitoringandobservability/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://notsuoholi.github.io/</loc>
-    <lastmod>2024-10-26T15:36:20-05:00</lastmod>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notsuoholi.github.io/posts/</loc>
-    <lastmod>2024-10-26T15:36:20-05:00</lastmod>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://notsuoholi.github.io/posts/intrototelemetry/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notsuoholi.github.io/posts/sretroubleshooting/</loc>
-    <lastmod>2024-10-26T15:36:20-05:00</lastmod>
+    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notsuoholi.github.io/posts/sresecurity/</loc>
-    <lastmod>2024-10-21T02:01:54-05:00</lastmod>
+    <lastmod>2024-10-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notsuoholi.github.io/posts/srecore/</loc>
-    <lastmod>2024-10-16T22:20:49-05:00</lastmod>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notsuoholi.github.io/posts/devopscore/</loc>
-    <lastmod>2024-10-10T22:20:49-05:00</lastmod>
+    <lastmod>2024-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://notsuoholi.github.io/pages/background/</loc>
     <lastmod>2024-10-06T21:35:26-05:00</lastmod>
