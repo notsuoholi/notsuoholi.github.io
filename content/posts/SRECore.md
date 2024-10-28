@@ -263,7 +263,8 @@ If I have 2.5M requests per day and aim for 99.99% availability I could reasonab
 ## A Visualization of the Above
 [This medium article](https://ernesenorelus.medium.com/building-sre-from-scratch-485e23985bbd) gives a very similar, high level outline of the topics I spoke about above. 
 It also provides this flowchart which I feel does a great job of demonstrating the many areas which SREs are responsible for and wraps up this post well.
-![alt](/assets/sreflowchart.png)
+
+![Alt Text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*3Hn-OiFm27eP6bMfSiClKQ.png)
 
 ## Sources
 - [SRE vs DevOps (Atlassian)](https://www.atlassian.com/devops/frameworks/sre-vs-devops)
