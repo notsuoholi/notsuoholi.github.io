@@ -1,6 +1,6 @@
 +++
-title = 'DevOps & Release Management - Core Principles'
-date = 2024-10-10T22:20:49-05:00
+title = 'DevOps & Release Management, Core Principles'
+date = 2024-10-10
 draft = false
 +++
 The below serves to outline some of the key aspects of DevOps and Release Engineering. It is not at all a complete guide but does cover some of the most important components. I will add to is as I continue to dive deeper.
@@ -87,7 +87,7 @@ On the other hand, procedural style tools like Chef and Ansible allow one to wri
     - State is unimportant (test resources) and orphaned resources cleaned up regularly
 
 
-## Sources:
+## Sources
 - [Release Engineering](https://sre.google/sre-book/release-engineering/)
 - [How SRE Relates to DevOps](https://sre.google/workbook/how-sre-relates/)
 - [Effective DevOps](https://www.oreilly.com/library/view/effective-devops/9781491926291/)

@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Troubleshooting as an SRE | Oli&#39;s Workshop</title>
-<meta property="og:title" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
-<meta name="twitter:title" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
-<meta itemprop="name" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
-<meta name="application-name" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
+<title itemprop="name">Instrumentation with OpenTelemetry | Oli&#39;s Workshop</title>
+<meta property="og:title" content="Instrumentation with OpenTelemetry | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="Instrumentation with OpenTelemetry | Oli&#39;s Workshop" />
+<meta itemprop="name" content="Instrumentation with OpenTelemetry | Oli&#39;s Workshop" />
+<meta name="application-name" content="Instrumentation with OpenTelemetry | Oli&#39;s Workshop" />
 <meta property="og:site_name" content="Oli&#39;s Workshop" />
 
 <meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/posts/sretroubleshooting/" title="English" />
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/posts/introtoopentelemetry/" title="English" />
 
 
 
@@ -29,9 +29,9 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content=2024-10-26T00:00:00Z />
-    <meta property="article:published_time" content=2024-10-26T00:00:00Z />
-    <meta property="og:url" content="http://localhost:1313/posts/sretroubleshooting/" />
+    <meta property="og:article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="og:url" content="http://localhost:1313/posts/introtoopentelemetry/" />
 
     
     <meta property="og:article:author" content="Oli Blaine" />
@@ -46,16 +46,16 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "Troubleshooting as an SRE",
+        "headline": "Instrumentation with OpenTelemetry",
         "author": {
         "@type": "Person",
         "name": ""
         },
-        "datePublished": "2024-10-26",
+        "datePublished": "2024-10-27",
         "description": "",
-        "wordCount":  981 ,
+        "wordCount":  741 ,
         "mainEntityOfPage": "True",
-        "dateModified": "2024-10-26",
+        "dateModified": "2024-10-27",
         "image": {
         "@type": "imageObject",
         "url": ""
@@ -71,31 +71,29 @@
 <meta name="generator" content="Hugo 0.135.0">
 
     
-    <meta property="og:url" content="http://localhost:1313/posts/sretroubleshooting/">
+    <meta property="og:url" content="http://localhost:1313/posts/introtoopentelemetry/">
   <meta property="og:site_name" content="Oli&#39;s Workshop">
-  <meta property="og:title" content="Troubleshooting as an SRE">
-  <meta property="og:description" content="Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.
-General Troubleshooting Method 1. The Problem Report A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).
-What does this problem report tell us about the expected behavior of the service? What does it tell us about the actual behavior of the service at present.">
+  <meta property="og:title" content="Instrumentation with OpenTelemetry">
+  <meta property="og:description" content="OpenTelemetry - An Overview OTEL is an open source observability framework. It offers vendor-agnostic or vendor-neutral APIs, software development kits (SDKs) and other tools for collecting telemetry data from cloud-native applications and their supporting infrastructure to understand their performance and health.
+It standardizes the way telemetry data is collected and transmitted to our backend platforms. With a common format for instrumentation used across our services, we avoid gaps in visibility.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-10-26T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-10-26T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-10-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-27T00:00:00+00:00">
 
 
     
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Troubleshooting as an SRE">
-  <meta name="twitter:description" content="Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.
-General Troubleshooting Method 1. The Problem Report A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).
-What does this problem report tell us about the expected behavior of the service? What does it tell us about the actual behavior of the service at present.">
+  <meta name="twitter:title" content="Instrumentation with OpenTelemetry">
+  <meta name="twitter:description" content="OpenTelemetry - An Overview OTEL is an open source observability framework. It offers vendor-agnostic or vendor-neutral APIs, software development kits (SDKs) and other tools for collecting telemetry data from cloud-native applications and their supporting infrastructure to understand their performance and health.
+It standardizes the way telemetry data is collected and transmitted to our backend platforms. With a common format for instrumentation used across our services, we avoid gaps in visibility.">
 
 
     
 
-    <link rel="canonical" href="http://localhost:1313/posts/sretroubleshooting/">
+    <link rel="canonical" href="http://localhost:1313/posts/introtoopentelemetry/">
     <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -200,12 +198,12 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">Troubleshooting as an SRE</h1>
+                <h1 class="header-title">Instrumentation with OpenTelemetry</h1>
                 
                 
                 
                 <div class="post-meta">
-                    <time datetime="2024-10-26T00:00:00&#43;00:00" itemprop="datePublished"> Oct 26, 2024 </time>
+                    <time datetime="2024-10-27T00:00:00&#43;00:00" itemprop="datePublished"> Oct 27, 2024 </time>
                 </div>
                 
             </header>
@@ -215,26 +213,13 @@ stroke-linejoin="round" class="feather feather-home">
         <summary><b>Table of Contents</b></summary>
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#general-troubleshooting-method">General Troubleshooting Method</a>
+    <li><a href="#opentelemetry---an-overview">OpenTelemetry - An Overview</a>
       <ul>
-        <li><a href="#1-the-problem-report">1. The Problem Report</a></li>
-        <li><a href="#2-triage">2. Triage</a>
-          <ul>
-            <li><a href="#options-for-triage">Options for Triage</a></li>
-          </ul>
-        </li>
-        <li><a href="#3-examine">3. Examine</a></li>
-        <li><a href="#4-diagnose">4. Diagnose</a>
-          <ul>
-            <li><a href="#where-what-why">Where, What, Why?</a></li>
-          </ul>
-        </li>
-        <li><a href="#5-test--treat">5. Test &amp; Treat</a>
-          <ul>
-            <li><a href="#experiment-and-test">Experiment and test.</a></li>
-            <li><a href="#cure">Cure</a></li>
-          </ul>
-        </li>
+        <li><a href="#otlp---open-telemetry-protocol">OTLP - Open Telemetry Protocol</a></li>
+        <li><a href="#otel-collector">OTEL Collector</a></li>
+        <li><a href="#instrumentation">Instrumentation</a></li>
+        <li><a href="#setting-up-your-collector">Setting Up Your Collector</a></li>
+        <li><a href="#next-articleintro-to-monitoring-and-observabilityintrotomonitoringandobservability"><a href="IntroToMonitoringAndObservability">Next Article&hellip;(Intro to Monitoring and Observability)</a></a></li>
       </ul>
     </li>
     <li><a href="#sources">Sources</a></li>
@@ -242,105 +227,98 @@ stroke-linejoin="round" class="feather feather-home">
 </nav>
     </details>
             <div class="page-content">
-                <p>Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.</p>
-<h2 id="general-troubleshooting-method">General Troubleshooting Method</h2>
-<h3 id="1-the-problem-report">1. The Problem Report</h3>
-<p>A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).</p>
-<p>What does this problem report tell us about the expected behavior of the service? What does it tell us about the <em><strong>actual</strong></em> behavior of the service at present.</p>
+                <h2 id="opentelemetry---an-overview">OpenTelemetry - An Overview</h2>
+<p>OTEL is an open source observability framework. It offers vendor-agnostic or vendor-neutral APIs, software development kits (SDKs) and other tools for collecting telemetry data from cloud-native applications and their supporting infrastructure to understand their performance and health.</p>
+<p>It standardizes the way telemetry data is collected and transmitted to our backend platforms. With a common format for instrumentation used across our services, we avoid gaps in visibility.</p>
+<p>Development teams do not need to re-instrument code when something changes, it evolves as the application does.</p>
+<p>OTEL allows us to instrument the individual parts of our application like fetch requests, db drivers, various paths each service, etc. Instrumenting these pieces allows us to measure which parts of our application are performant and which are not.</p>
+<h3 id="otlp---open-telemetry-protocol">OTLP - Open Telemetry Protocol</h3>
+<p>Defines the common props/fields within the message we are sending to the OTEL collector which then ends up in our observability backends.</p>
+<p>It is a protobuf schema which can be sent over gRPC (most common) or HTTP.</p>
+<p><strong><sub>Note: A Protocol Buffers (protobuf) schema defines the structure of data used in communication between applications or services.</sub></strong></p>
+<h3 id="otel-collector">OTEL Collector</h3>
+<p>A service which operates as a collector for the data which is generated by the applications/services which you are interested in measuring. It is the thing which sits between your services and your observability backends (Prometheus, Tempo, Loki, etc.).</p>
+<p>It is particularly useful for the following reasons:</p>
 <ul>
-<li>Does it include steps I might take to reproduce the issue or is it something more vague?</li>
-<li>Are we tracking this report somewhere? i.e. JIRA, OpsGenie, AlertManager, etc.</li>
+<li>Aggregating data</li>
+<li>Scrubbing personally identifiable information before ingestion into long storage</li>
+<li>Batch requests to third party services to prevent rate limiting</li>
 </ul>
-<h3 id="2-triage">2. Triage</h3>
-<p>Now that we have a better understanding of the report, we need to gain an understanding of the problem&rsquo;s severity. Is this a Sev1 or Sev2 incident? If so, it is time to declare the incident and start an incident document and log our findings and attempts at resolution, including a timeline.</p>
-<p>If possible, delegate the task of maintaining the timeline to another person present for triage. The person(s) handling incident operations should maintain a separate document with their experiments and findings which can be linked to from the incident document.</p>
+<h3 id="instrumentation">Instrumentation</h3>
+<p>Auto-Instrumentation (No Code Solution)</p>
 <ul>
-<li><strong>sev1 - widespread outage</strong></li>
-<li><strong>sev2 - outage localized to a subsection of our service or degraded service performance</strong></li>
+<li>Allows you to instrument your applications without altering source code. It gives you visibility into your service without having to use the OTEL API &amp; SDK code-based instrumentation.</li>
+<li>Uses an agent or agent-like installation. It injects calls to the OTEL API and SDK into the application via various mechanisms based on language.</li>
+<li>Best used when you want to instrument the libraries you&rsquo;re using within your application. Things like requests and responses, database calls, message q</li>
+<li>To get started with auto-implementation you need to run with a supported language and service name configured so your observability backend can identify the service.</li>
+<li>More on Auto-Instrumentation can be found <a href="https://opentelemetry.io/docs/concepts/instrumentation/zero-code/">here</a>.</li>
 </ul>
-<p>If it is anything less than those, we should ensure we create a ticket and start a document where we can track findings on this particular issue.</p>
-<p><strong>Note:</strong> It is acceptable to begin taking a look at monitors, metrics, and system logs to find out the severity of an issue and to get clues on which method you might take to triage. Once you find a method for triage, it is important to apply that patch before continuing to root cause.</p>
-<h4 id="options-for-triage">Options for Triage</h4>
-<p>Even though it is tempting to jump headfirst into investigating the issue, it is better to see how we can limit the current impact of the outage. If the issue is not currently causing any widespread issues, you may skip this step and move onto examination.</p>
-<p>There are several options for limiting the impact of an outage. If we are experiencing an issue which affects one or several parts of our service it is wise to start at a high level by inspecting the incident report for clues as to which service(s) is most heavily affected. Strategies we might try include (but are not limited to):</p>
+<p>Custom Instrumentation</p>
 <ul>
-<li>Have there been any recent changes to the service? Is it possible for us to roll them back quickly? We can try to find change windows and analyze behaviors before and after a deployment/release.</li>
-<li>Load Shedding &amp; Rate Limiting
+<li>If you have some unique application code you want to measure, you will need to instrument that via code.
 <ul>
-<li>Rate limiting - Rejecting certain requests above a given threshold if the service is overloaded so we avoid a total failure.</li>
-</ul>
-</li>
-<li>Graceful Degradation
-<ul>
-<li>Serving degraded results if the service is overloaded so as to decrease likelihood of all out failure.</li>
-</ul>
-</li>
-<li>Retry Policies
-<ul>
-<li>Limiting the retries attempted per failed requests can prevent us from getting into a cycle of <code>failures -&gt; retries</code> which steadily increases queue and the amount of pressure put on an already overwhelmed service. Consider when retries are necessary and when they are not.</li>
+<li>Say you have a part of code which parses a <code>.csv</code> file and you want visibility into that process, you may find creating a custom span helps you track the performance of that particular process.</li>
 </ul>
 </li>
-<li>When/Where to Retry
+<li>Learn more <a href="https://opentelemetry.io/docs/concepts/instrumentation/code-based/">here</a>.</li>
+</ul>
+<p>Library Instrumentation</p>
 <ul>
-<li>Client-side errors: These errors usually indicate issues with the request itself, such as invalid input or authentication problems, and should not be retried.</li>
-<li>Server-side errors: These errors often indicate temporary issues on the server, such as overload or downtime, and are suitable candidates for retry attempts.</li>
-<li>Transient errors: Errors like network timeouts or rate limiting by cloud services are often temporary and can be resolved with retries.</li>
+<li>Helpful when you want to instrument a specific piece of your service with a library.
+<ul>
+<li>i.e. If you have a DB driver, like the <code>JDBC-ODBC</code> or <code>MongoDB</code> driver and you want to measure its performance without having to instrument it yourself.</li>
 </ul>
 </li>
+<li>Learn more <a href="https://opentelemetry.io/docs/concepts/instrumentation/libraries/">here</a>.</li>
 </ul>
-<h3 id="3-examine">3. Examine</h3>
-<p>Once we have triaged (stopped the bleeding!) we may move to a deeper examination of the problem. We must as ourselves what this piece of the system is <em><strong>supposed</strong></em> to do? And what is it <em><strong>actually</strong></em> doing? The incident report gives us a slight clue into where the issue is as well as our triage steps.</p>
-<p>We should now be examining:</p>
+<h3 id="setting-up-your-collector">Setting Up Your Collector</h3>
+<p>The collector comes in various formats but since we&rsquo;re thinking about observing a system comprised of connected microservices, we&rsquo;d likely run it in a container in our Kubernetes cluster.</p>
+<p>There are five integral pieces we must configure for our collector which are:</p>
 <ul>
-<li>Service/application metrics with monitoring tools like Prometheus, Grafana, DataDog, etc.
+<li>Receivers
 <ul>
-<li>What do our error rates look like for the service? Is there an increase in query or request latency?</li>
-</ul>
-</li>
-<li>Service logs for detailed views into what is happening in each the services upstream and downstream.</li>
-<li>Traces give us a view into the journey a particular request&rsquo;s journey through the system and where it ran into errors/issues.</li>
-</ul>
-<h3 id="4-diagnose">4. Diagnose</h3>
-<ul>
-<li>Look at the connections between components in the system. How does data normally flow between them, is there an issue with this flow?</li>
-<li>Use test data to check that outputs are as expected and further examine when they are not.</li>
-<li>Test components piece by piece, whether via a top-down approach, bisection, or a combination of both. Rule out hypothesis section by section until you have narrowed it to a few or one component.</li>
-</ul>
-<h4 id="where-what-why">Where, What, Why?</h4>
-<ul>
-<li>What is the malfunctioning system doing?</li>
-<li>Where</li>
-</ul>
-<h3 id="5-test--treat">5. Test &amp; Treat</h3>
-<h4 id="experiment-and-test">Experiment and test.</h4>
-<pre><code>- Perform the quick/obvious tests first.
-    - Are we failing to connect to a database? Test the connection to your DB from inside a running pod rather than looking at configuration code first.
-</code></pre>
-<ul>
-<li>Document which ideas you had, how you tested them, and what the results of each test were.
-<ul>
-<li>If you have any visualizations to pair with these tests that increases the usefulness of this documentation tenfold.
-Do NOT discount the value of a negative test. Getting a result we did not expect can push us closer to the correct answer and possibly surface issues we were unaware of.</li>
+<li>How the collector takes in data from your application.</li>
+<li>We determine which ports the collector listen on and configure our application to send data to those ports. This is useful as we can define which protocol to associate with a specific port (80, 443, etc.).</li>
 </ul>
 </li>
+<li>Processors
+<ul>
+<li>Transforms messages from collector before they are sent to the exporter for transmission to the observability backend.</li>
+<li>Here we can do things like filter out data, scrub sensitive data, combine like data, etc.</li>
 </ul>
-<h4 id="cure">Cure</h4>
+</li>
+<li>Extensions
 <ul>
-<li>After narrowing down the cause(s) of the problem, we apply the fix(es) and complete our documentation (Postmortem).</li>
-<li>A good postmortem covers:
+<li>Here we can define additional behavior for the collector.</li>
+<li>We could have an extension which monitors the health of the collector, service monitoring, data forwarding, etc.</li>
+</ul>
+</li>
+<li>Exporters
 <ul>
-<li>What went wrong?</li>
-<li>How did we track the problem?</li>
-<li>How did we fix the problem?</li>
-<li>How do we prevent it from re-occurring?</li>
+<li>Where we define how the collector sends things through the pipeline to the backend(s).</li>
+<li>We define exporters for different backends.
+<ul>
+<li>Loki, Prometheus, Jaeger, Mimir, etc.</li>
+</ul>
+</li>
+<li>Debug exporters are useful for understanding the data you&rsquo;re trying to collect and whether it is in the form you expect.</li>
+</ul>
+</li>
+<li>Pipelines
+<ul>
+<li>All of these things combined are what the pipeline is composed of.</li>
+</ul>
+</li>
+<li>Connectors
+<ul>
+<li>A combination of pipelines which are processed together for compose-ability.</li>
+<li>The connector consumes data as an exporter at the end of one pipeline and emits data as a receiver at the beginning of another. The data could be of the same or different types.</li>
 </ul>
 </li>
 </ul>
+<h3 id="next-articleintro-to-monitoring-and-observabilityintrotomonitoringandobservability"><a href="/posts/introtomonitoringandobservability/">Next Article&hellip;(Intro to Monitoring and Observability)</a></h3>
 <h2 id="sources">Sources</h2>
-<p><a href="https://sre.google/sre-book/effective-troubleshooting/">Effective Troubleshooting</a>
-<a href="https://sre.google/sre-book/addressing-cascading-failures/">Cascading Failures</a>
-<a href="https://sre.google/sre-book/managing-incidents/">Incident Management</a>
-<a href="https://sre.google/sre-book/emergency-response/">Emergency Response</a></p>
+<p><a href="https://opentelemetry.io/docs/what-is-opentelemetry/">What is OpenTelemetry</a></p>
 
             </div>
         </article></main>

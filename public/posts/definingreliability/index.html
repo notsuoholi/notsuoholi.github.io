@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Defining Reliability within Your System | Oli&#39;s Workshop</title>
+<meta property="og:title" content="Defining Reliability within Your System | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="Defining Reliability within Your System | Oli&#39;s Workshop" />
+<meta itemprop="name" content="Defining Reliability within Your System | Oli&#39;s Workshop" />
+<meta name="application-name" content="Defining Reliability within Your System | Oli&#39;s Workshop" />
+<meta property="og:site_name" content="Oli&#39;s Workshop" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/posts/definingreliability/" title="English" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="og:url" content="http://localhost:1313/posts/definingreliability/" />
+
+    
+    <meta property="og:article:author" content="Oli Blaine" />
+    <meta property="article:author" content="Oli Blaine" />
+    <meta name="author" content="Oli Blaine" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Defining Reliability within Your System",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-10-27",
+        "description": "",
+        "wordCount":  1066 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-10-27",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Oli\u0027s Workshop"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+    <meta property="og:url" content="http://localhost:1313/posts/definingreliability/">
+  <meta property="og:site_name" content="Oli&#39;s Workshop">
+  <meta property="og:title" content="Defining Reliability within Your System">
+  <meta property="og:description" content="This outline provides an approach to building reliability into your system or application. To fully grasp the concepts discussed here, it’s essential to understand the concepts discussed in the other articles in this collection, as they serve as foundational building blocks.
+Understanding Business Requirements and User Expectation Before diving deep into the actual system, we must gain a deeper understanding of what is expected of our application.
+Build what you need not what you think you need Speak with the development teams, platform engineers, and business stakeholders to understand our critical business objectives. Determine what our users expect, at minimum, from our application. Don’t focus on anything that isn’t identified as important to the business or user’s of the application. Identify critical user journeys. Map out primary functions (user journeys) that directly impact customer satisfaction and business objectives. This is application specific. Clarify our objectives and Key Performance Indicators. Are we aiming for high availability? What exactly does that look like? Setting these goals helps inform our SLO benchmarks. Defining What’s Important In order for development teams to identify and define SLOs and SLIs, they (and you) must understand what they are. Below is a short introduction.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-27T00:00:00+00:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Defining Reliability within Your System">
+  <meta name="twitter:description" content="This outline provides an approach to building reliability into your system or application. To fully grasp the concepts discussed here, it’s essential to understand the concepts discussed in the other articles in this collection, as they serve as foundational building blocks.
+Understanding Business Requirements and User Expectation Before diving deep into the actual system, we must gain a deeper understanding of what is expected of our application.
+Build what you need not what you think you need Speak with the development teams, platform engineers, and business stakeholders to understand our critical business objectives. Determine what our users expect, at minimum, from our application. Don’t focus on anything that isn’t identified as important to the business or user’s of the application. Identify critical user journeys. Map out primary functions (user journeys) that directly impact customer satisfaction and business objectives. This is application specific. Clarify our objectives and Key Performance Indicators. Are we aiming for high availability? What exactly does that look like? Setting these goals helps inform our SLO benchmarks. Defining What’s Important In order for development teams to identify and define SLOs and SLIs, they (and you) must understand what they are. Below is a short introduction.">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/definingreliability/">
+    <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "auto" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/background/">
+                        Background
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/reliability/">
+                        Building Reliability
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/srevsdevops/">
+                        SRE vs DevOps
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Defining Reliability within Your System</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-27T00:00:00&#43;00:00" itemprop="datePublished"> Oct 27, 2024 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#understanding-business-requirements-and-user-expectation">Understanding Business Requirements and User Expectation</a>
+      <ul>
+        <li><a href="#build-what-you-need-not-what-you-think-you-need">Build what you need not what you think you need</a></li>
+      </ul>
+    </li>
+    <li><a href="#defining-whats-important">Defining What&rsquo;s Important</a>
+      <ul>
+        <li><a href="#sli---slo---sla">SLI -&gt; SLO -&gt; SLA?</a></li>
+        <li><a href="#the-four-golden-signals">The Four Golden Signals</a></li>
+        <li><a href="#prioritize">Prioritize!</a></li>
+        <li><a href="#setting-initial-slos">Setting Initial SLOs</a></li>
+      </ul>
+    </li>
+    <li><a href="#feedback-and-iteration">Feedback and Iteration</a></li>
+    <li><a href="#monitoring-and-alerting">Monitoring and Alerting</a></li>
+    <li><a href="#documentation-and-communication">Documentation and Communication</a>
+      <ul>
+        <li><a href="#create-clear-documentation">Create Clear Documentation</a></li>
+        <li><a href="#set-communication-protocols">Set Communication Protocols</a></li>
+      </ul>
+    </li>
+    <li><a href="#refine-and-refine-again">Refine and refine again.</a></li>
+    <li><a href="#sli---slo---an-example">SLI -&gt; SLO - An Example:</a>
+      <ul>
+        <li><a href="#define-slos-based-on-user-expectations">Define SLOs Based on User Expectations</a></li>
+        <li><a href="#identify-slis-to-measure-slos">Identify SLIs to Measure SLOs</a></li>
+        <li><a href="#set-sli-targets-to-match-slos">Set SLI Targets to Match SLOs</a>
+          <ul>
+            <li><a href="#on-slas">On SLAs</a></li>
+          </ul>
+        </li>
+        <li><a href="#final-word">Final Word</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>This outline provides an approach to building reliability into your system or application. To fully grasp the concepts discussed here, it’s essential to understand the concepts discussed in the other articles in this collection, as they serve as foundational building blocks.</p>
+<h2 id="understanding-business-requirements-and-user-expectation">Understanding Business Requirements and User Expectation</h2>
+<p>Before diving deep into the actual system, we must gain a deeper understanding of what is expected of our application.</p>
+<h3 id="build-what-you-need-not-what-you-think-you-need">Build what you need not what you think you need</h3>
+<ul>
+<li>Speak with the development teams, platform engineers, and business stakeholders to understand our critical business objectives.
+<ul>
+<li>Determine what our users expect, at minimum, from our application. Don&rsquo;t focus on anything that isn&rsquo;t identified as important to the business or user&rsquo;s of the application.</li>
+</ul>
+</li>
+<li>Identify critical user journeys.
+<ul>
+<li>Map out primary functions (user journeys) that directly impact customer satisfaction and business objectives. This is application specific.</li>
+</ul>
+</li>
+<li>Clarify our objectives and Key Performance Indicators.
+<ul>
+<li>Are we aiming for high availability? What exactly does that look like?</li>
+<li>Setting these goals helps inform our SLO benchmarks.</li>
+</ul>
+</li>
+</ul>
+<h2 id="defining-whats-important">Defining What&rsquo;s Important</h2>
+<p>In order for development teams to identify and define SLOs and SLIs, they (and you) must understand what they are. Below is a short introduction.</p>
+<h3 id="sli---slo---sla">SLI -&gt; SLO -&gt; SLA?</h3>
+<ul>
+<li>Service Level Indicators (SLIs) are specific, measurable characteristics of the service, such as latency or error rates.</li>
+<li>Service Level Objectives (SLOs) are the target values for SLIs our service aims to meet.</li>
+<li>Service Level Agreements (SLAs) are contractual agreements with customers that include consequences for failure (usually a financial penalty or reputation damage).</li>
+<li>Error budgets are the amount of room we have to accept errors before breaching our SLAs. Google&rsquo;s <a href="https://sre.google/sre-book/availability-table/">Availability table</a> is a great example of leaving room for error.</li>
+</ul>
+<p>More on SLIs, SLOs, and SLAs can be read <a href="https://notsuoholi.github.io/posts/srecore/#sli---slo---sla--error-budgets">here</a>.</p>
+<h3 id="the-four-golden-signals">The Four Golden Signals</h3>
+<p>Latency - The time it takes to serve a request. Think of something like request duration for a given request.
+Traffic - A measure of how much demand is being placed on your system. How many requests are we processing for a given service per second?
+Errors - The rate of requests that fail explicitly, like a 5xx, or implicitly, like a 2xx coupled with the wrong result.
+Saturation - How <em><strong>full</strong></em> a service is or its overall capacity. How many resources are being constrained on the service at a given time. Latency increases are often a marker for saturation of a service.</p>
+<h3 id="prioritize">Prioritize!</h3>
+<p>Ensure you are choosing metrics and signaling on data which matters most to the application&rsquo;s success. This should be based on the primary functions (user journeys) we defined in previous steps.</p>
+<h3 id="setting-initial-slos">Setting Initial SLOs</h3>
+<p>The goal for setting your SLOs is not perfection out of the gate. Aim for targets you can actually hit and iterate from there.</p>
+<p>Set your initial thresholds based on what you <em><strong>expect</strong></em> your traffic to look like, load test data can help here. Compare your application to others of the same type, if there are any, and set similar benchmarks.</p>
+<p>Utilize error budgets. Use them to give yourself guardrails and also the flexibility to evolve and improve with time. More on error budgets <a href="https://notsuoholi.github.io/posts/srecore/#error-budgets">here</a>.</p>
+<p>A great article on setting SLOs from scratch can be found <a href="https://medium.com/@asuffield/defining-an-slo-6302f60b218a">here</a>.</p>
+<h2 id="feedback-and-iteration">Feedback and Iteration</h2>
+<p>After setting proposed SLOs, test them against any and all data (metrics) available. This will likely be a combination of real and synthetic.</p>
+<p>After testing, review the SLOs once again with development teams. It&rsquo;s important to ensure they are aligned with current capabilities of the infrastructure and teams supporting your application.</p>
+<h2 id="monitoring-and-alerting">Monitoring and Alerting</h2>
+<p>Once you&rsquo;ve agreed to implement V1 of your SLOs, you can define and implement SLIs which track against them in order to alert when we&rsquo;re at risk of breaching them.</p>
+<p>Take time when crafting your SLIs. There is a real risk of creating too much noise in some cases or failing to catch errors because of poorly designed measures.</p>
+<h2 id="documentation-and-communication">Documentation and Communication</h2>
+<h3 id="create-clear-documentation">Create Clear Documentation</h3>
+<p>Write documentation outlining the SLOs selected by SRE and development teams, the reasoning behind them, and their impact on the application.</p>
+<h3 id="set-communication-protocols">Set Communication Protocols</h3>
+<p>Define how and when the SRE and/or development teams will communicate breaches or issues and what steps to take if an error budget is exhausted.</p>
+<h2 id="refine-and-refine-again">Refine and refine again.</h2>
+<p>At the outset, your SLOs probably won&rsquo;t be perfect. That is okay and expected.</p>
+<p>Once your application is live, monitor your SLOs closely and gather data on their performance.</p>
+<p>You will need to adjust your SLOs based on real-world performance, user feedback, and the needs of the business.</p>
+<p>The goal of the SRE and development teams should be to steadily improve application performance until you can meet your SLOs consistently and continue to fine tune them as the application improves.</p>
+<h2 id="sli---slo---an-example">SLI -&gt; SLO - An Example:</h2>
+<p>Let&rsquo;s say you are attempting to setup monitoring for an e-commerce application, a simple, typical example. Below are the steps you could follow to establish your initial SLO targets and SLIs which feed into those targets.</p>
+<h3 id="define-slos-based-on-user-expectations">Define SLOs Based on User Expectations</h3>
+<p>Set your SLOs based on user journeys and business needs:</p>
+<ul>
+<li><strong>Availability</strong>: 99.9% uptime for key endpoints over 30 days.</li>
+<li><strong>Latency</strong>: 95% of requests to <code>/checkout</code> and <code>/product</code> should respond within 100ms.</li>
+<li><strong>Error Rate</strong>: Less than 0.1% error rate for all API requests.</li>
+</ul>
+<h3 id="identify-slis-to-measure-slos">Identify SLIs to Measure SLOs</h3>
+<p>Once you&rsquo;ve defined your SLOs, select SLIs that will measure those goals accurately:</p>
+<ul>
+<li><strong>Availability</strong>: Track the percentage of HTTP 200 responses for critical endpoints.</li>
+<li><strong>Latency</strong>: Measure response times for <code>/checkout</code> and <code>/product</code>.</li>
+<li><strong>Error Rate</strong>: Monitor 5XX errors across all requests.</li>
+</ul>
+<h3 id="set-sli-targets-to-match-slos">Set SLI Targets to Match SLOs</h3>
+<p>Set SLI targets aligned with your SLOs:</p>
+<ul>
+<li><strong>Availability SLI Target</strong>: 99.9% uptime for critical endpoints.</li>
+<li><strong>Latency SLI Target</strong>: 95% of <code>/checkout</code> and <code>/product</code> requests under 100ms.</li>
+<li><strong>Error Rate SLI Target</strong>: Less than 0.1% 5xx errors.</li>
+</ul>
+<p>By defining SLOs first, you focus on user-centered goals, then measure these directly with SLIs.</p>
+<h4 id="on-slas">On SLAs</h4>
+<p>Sometimes it is the case that a service or application must adhere to specific SLA&rsquo;s which is often the case of financial applications. In this scenario, it is wise to think about SLAs and how they inform your SLOs.</p>
+<h3 id="final-word">Final Word</h3>
+<p>I hope this series has offered you a clearer understanding of the components that build observability in a system. Feel free to connect with me via LinkedIn or GitHub (links below) if you&rsquo;d like to contribute, or if you&rsquo;ve noticed any errors or missing information.</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/notsuoholi" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://linkedin.com/in/oliblaine" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Oli Blaine.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Troubleshooting as an SRE | Oli&#39;s Workshop</title>
-<meta property="og:title" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
-<meta name="twitter:title" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
-<meta itemprop="name" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
-<meta name="application-name" content="Troubleshooting as an SRE | Oli&#39;s Workshop" />
+<title itemprop="name">Establishing Reliability, a High Level Overview | Oli&#39;s Workshop</title>
+<meta property="og:title" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
+<meta name="twitter:title" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
+<meta itemprop="name" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
+<meta name="application-name" content="Establishing Reliability, a High Level Overview | Oli&#39;s Workshop" />
 <meta property="og:site_name" content="Oli&#39;s Workshop" />
 
 <meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/posts/sretroubleshooting/" title="English" />
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/posts/establishingreliability/" title="English" />
 
 
 
@@ -29,9 +29,9 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content=2024-10-26T00:00:00Z />
-    <meta property="article:published_time" content=2024-10-26T00:00:00Z />
-    <meta property="og:url" content="http://localhost:1313/posts/sretroubleshooting/" />
+    <meta property="og:article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="article:published_time" content=2024-10-27T00:00:00Z />
+    <meta property="og:url" content="http://localhost:1313/posts/establishingreliability/" />
 
     
     <meta property="og:article:author" content="Oli Blaine" />
@@ -46,16 +46,16 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "Troubleshooting as an SRE",
+        "headline": "Establishing Reliability, a High Level Overview",
         "author": {
         "@type": "Person",
         "name": ""
         },
-        "datePublished": "2024-10-26",
+        "datePublished": "2024-10-27",
         "description": "",
-        "wordCount":  981 ,
+        "wordCount":  663 ,
         "mainEntityOfPage": "True",
-        "dateModified": "2024-10-26",
+        "dateModified": "2024-10-27",
         "image": {
         "@type": "imageObject",
         "url": ""
@@ -71,31 +71,31 @@
 <meta name="generator" content="Hugo 0.135.0">
 
     
-    <meta property="og:url" content="http://localhost:1313/posts/sretroubleshooting/">
+    <meta property="og:url" content="http://localhost:1313/posts/establishingreliability/">
   <meta property="og:site_name" content="Oli&#39;s Workshop">
-  <meta property="og:title" content="Troubleshooting as an SRE">
-  <meta property="og:description" content="Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.
-General Troubleshooting Method 1. The Problem Report A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).
-What does this problem report tell us about the expected behavior of the service? What does it tell us about the actual behavior of the service at present.">
+  <meta property="og:title" content="Establishing Reliability, a High Level Overview">
+  <meta property="og:description" content="This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system.
+Note: Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.
+Questions to Ask Are all services within the system observable? Are we using a well-known framework or standard? (i.e. OpenTelemetry) How do we configure our Infrastructure? IaC or manual config? Can we identify any areas we may want to measure based on configuration? Have all previous outage causes or potential issues been identified and fixed? If these above have not been fixed are they properly documented and work tracked? Is there tech debt to consider? Understand Your Needs If you are building reliability and observability into a system, it is most important to lean on the SMEs from your development teams and platform engineering teams. They are the people who understand the system you are to measure.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-10-26T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-10-26T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-10-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-27T00:00:00+00:00">
 
 
     
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Troubleshooting as an SRE">
-  <meta name="twitter:description" content="Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.
-General Troubleshooting Method 1. The Problem Report A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).
-What does this problem report tell us about the expected behavior of the service? What does it tell us about the actual behavior of the service at present.">
+  <meta name="twitter:title" content="Establishing Reliability, a High Level Overview">
+  <meta name="twitter:description" content="This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system.
+Note: Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.
+Questions to Ask Are all services within the system observable? Are we using a well-known framework or standard? (i.e. OpenTelemetry) How do we configure our Infrastructure? IaC or manual config? Can we identify any areas we may want to measure based on configuration? Have all previous outage causes or potential issues been identified and fixed? If these above have not been fixed are they properly documented and work tracked? Is there tech debt to consider? Understand Your Needs If you are building reliability and observability into a system, it is most important to lean on the SMEs from your development teams and platform engineering teams. They are the people who understand the system you are to measure.">
 
 
     
 
-    <link rel="canonical" href="http://localhost:1313/posts/sretroubleshooting/">
+    <link rel="canonical" href="http://localhost:1313/posts/establishingreliability/">
     <link href="/style.min.2d921c18cf1ec555ffc03d59a8adc211c402c68c930c27d6a0c306ab175a8d09.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -200,12 +200,12 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">Troubleshooting as an SRE</h1>
+                <h1 class="header-title">Establishing Reliability, a High Level Overview</h1>
                 
                 
                 
                 <div class="post-meta">
-                    <time datetime="2024-10-26T00:00:00&#43;00:00" itemprop="datePublished"> Oct 26, 2024 </time>
+                    <time datetime="2024-10-27T00:00:00&#43;00:00" itemprop="datePublished"> Oct 27, 2024 </time>
                 </div>
                 
             </header>
@@ -215,132 +215,111 @@ stroke-linejoin="round" class="feather feather-home">
         <summary><b>Table of Contents</b></summary>
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#general-troubleshooting-method">General Troubleshooting Method</a>
+    <li><a href="#questions-to-ask">Questions to Ask</a></li>
+    <li><a href="#understand-your-needs">Understand Your Needs</a></li>
+    <li><a href="#select-tooling">Select Tooling</a></li>
+    <li><a href="#scheduling--slas---slos---slis">Scheduling &amp; SLAs -&gt; SLOs -&gt; SLIs</a></li>
+    <li><a href="#monitoring---establishing-a-baseline">Monitoring - Establishing a Baseline</a>
       <ul>
-        <li><a href="#1-the-problem-report">1. The Problem Report</a></li>
-        <li><a href="#2-triage">2. Triage</a>
-          <ul>
-            <li><a href="#options-for-triage">Options for Triage</a></li>
-          </ul>
-        </li>
-        <li><a href="#3-examine">3. Examine</a></li>
-        <li><a href="#4-diagnose">4. Diagnose</a>
-          <ul>
-            <li><a href="#where-what-why">Where, What, Why?</a></li>
-          </ul>
-        </li>
-        <li><a href="#5-test--treat">5. Test &amp; Treat</a>
-          <ul>
-            <li><a href="#experiment-and-test">Experiment and test.</a></li>
-            <li><a href="#cure">Cure</a></li>
-          </ul>
-        </li>
+        <li><a href="#melt---setup-telemetry--monitoring-for-priority-1-and-beyond">MELT - Setup Telemetry &amp; Monitoring for Priority 1 and Beyond</a></li>
+        <li><a href="#automation">Automation</a></li>
       </ul>
     </li>
-    <li><a href="#sources">Sources</a></li>
+    <li><a href="#perform-production-readiness-reviews">Perform Production Readiness Reviews</a></li>
+    <li><a href="#document-and-plan">Document and Plan</a></li>
+    <li><a href="#incident-management">Incident Management</a>
+      <ul>
+        <li><a href="#next-articleintro-to-telemetrypostsintrototelemetry"><a href="../posts/IntroToTelemetry">Next Article&hellip;(Intro to Telemetry)</a></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </details>
             <div class="page-content">
-                <p>Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.</p>
-<h2 id="general-troubleshooting-method">General Troubleshooting Method</h2>
-<h3 id="1-the-problem-report">1. The Problem Report</h3>
-<p>A problem is reported, whether by alert, customer reported ticket, or complaint/report in internal messaging service (i.e. Slack, MS Teams).</p>
-<p>What does this problem report tell us about the expected behavior of the service? What does it tell us about the <em><strong>actual</strong></em> behavior of the service at present.</p>
+                <p>This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system.</p>
+<p><strong>Note:</strong> Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.</p>
+<h2 id="questions-to-ask">Questions to Ask</h2>
 <ul>
-<li>Does it include steps I might take to reproduce the issue or is it something more vague?</li>
-<li>Are we tracking this report somewhere? i.e. JIRA, OpsGenie, AlertManager, etc.</li>
-</ul>
-<h3 id="2-triage">2. Triage</h3>
-<p>Now that we have a better understanding of the report, we need to gain an understanding of the problem&rsquo;s severity. Is this a Sev1 or Sev2 incident? If so, it is time to declare the incident and start an incident document and log our findings and attempts at resolution, including a timeline.</p>
-<p>If possible, delegate the task of maintaining the timeline to another person present for triage. The person(s) handling incident operations should maintain a separate document with their experiments and findings which can be linked to from the incident document.</p>
+<li>Are all services within the system observable?
 <ul>
-<li><strong>sev1 - widespread outage</strong></li>
-<li><strong>sev2 - outage localized to a subsection of our service or degraded service performance</strong></li>
-</ul>
-<p>If it is anything less than those, we should ensure we create a ticket and start a document where we can track findings on this particular issue.</p>
-<p><strong>Note:</strong> It is acceptable to begin taking a look at monitors, metrics, and system logs to find out the severity of an issue and to get clues on which method you might take to triage. Once you find a method for triage, it is important to apply that patch before continuing to root cause.</p>
-<h4 id="options-for-triage">Options for Triage</h4>
-<p>Even though it is tempting to jump headfirst into investigating the issue, it is better to see how we can limit the current impact of the outage. If the issue is not currently causing any widespread issues, you may skip this step and move onto examination.</p>
-<p>There are several options for limiting the impact of an outage. If we are experiencing an issue which affects one or several parts of our service it is wise to start at a high level by inspecting the incident report for clues as to which service(s) is most heavily affected. Strategies we might try include (but are not limited to):</p>
-<ul>
-<li>Have there been any recent changes to the service? Is it possible for us to roll them back quickly? We can try to find change windows and analyze behaviors before and after a deployment/release.</li>
-<li>Load Shedding &amp; Rate Limiting
-<ul>
-<li>Rate limiting - Rejecting certain requests above a given threshold if the service is overloaded so we avoid a total failure.</li>
+<li>Are we using a well-known framework or standard? (i.e. OpenTelemetry)</li>
 </ul>
 </li>
-<li>Graceful Degradation
+<li>How do we configure our Infrastructure?
 <ul>
-<li>Serving degraded results if the service is overloaded so as to decrease likelihood of all out failure.</li>
+<li>IaC or manual config?</li>
+<li>Can we identify any areas we may want to measure based on configuration?</li>
 </ul>
 </li>
-<li>Retry Policies
+<li>Have all previous outage causes or potential issues been identified and fixed?
 <ul>
-<li>Limiting the retries attempted per failed requests can prevent us from getting into a cycle of <code>failures -&gt; retries</code> which steadily increases queue and the amount of pressure put on an already overwhelmed service. Consider when retries are necessary and when they are not.</li>
-</ul>
-</li>
-<li>When/Where to Retry
-<ul>
-<li>Client-side errors: These errors usually indicate issues with the request itself, such as invalid input or authentication problems, and should not be retried.</li>
-<li>Server-side errors: These errors often indicate temporary issues on the server, such as overload or downtime, and are suitable candidates for retry attempts.</li>
-<li>Transient errors: Errors like network timeouts or rate limiting by cloud services are often temporary and can be resolved with retries.</li>
+<li>If these above have not been fixed are they properly documented and work tracked?</li>
+<li>Is there tech debt to consider?</li>
 </ul>
 </li>
 </ul>
-<h3 id="3-examine">3. Examine</h3>
-<p>Once we have triaged (stopped the bleeding!) we may move to a deeper examination of the problem. We must as ourselves what this piece of the system is <em><strong>supposed</strong></em> to do? And what is it <em><strong>actually</strong></em> doing? The incident report gives us a slight clue into where the issue is as well as our triage steps.</p>
-<p>We should now be examining:</p>
+<h2 id="understand-your-needs">Understand Your Needs</h2>
+<p>If you are building reliability and observability into a system, it is most important to lean on the SMEs from your development teams and platform engineering teams. They are the people who understand the system you are to measure.</p>
+<p>Together, you must answer the questions laid out <a href="/posts/establishingreliability/#questions-to-ask">above</a>.</p>
+<h2 id="select-tooling">Select Tooling</h2>
+<p>Once you have a better understanding of the questions you need to answer, you can determine the tool which will best help you answer them. Select the tool which fits your needs best and allows you to unify data from several sources.</p>
+<h2 id="scheduling--slas---slos---slis">Scheduling &amp; SLAs -&gt; SLOs -&gt; SLIs</h2>
+<p>Work with each team on a rotating schedule to continue to develop an understanding of each piece of the system and its needs.</p>
 <ul>
-<li>Service/application metrics with monitoring tools like Prometheus, Grafana, DataDog, etc.
+<li>
+<p>Determine your SLAs, SLOs, and SLIs based on the information you can now gather from your system. It is worth asking yourself the following questions:</p>
 <ul>
-<li>What do our error rates look like for the service? Is there an increase in query or request latency?</li>
-</ul>
-</li>
-<li>Service logs for detailed views into what is happening in each the services upstream and downstream.</li>
-<li>Traces give us a view into the journey a particular request&rsquo;s journey through the system and where it ran into errors/issues.</li>
-</ul>
-<h3 id="4-diagnose">4. Diagnose</h3>
+<li>Do we have a solid understanding of our customer&rsquo;s needs?</li>
+<li>What would need to be present, at minimum, for our customers consider our system performant?
 <ul>
-<li>Look at the connections between components in the system. How does data normally flow between them, is there an issue with this flow?</li>
-<li>Use test data to check that outputs are as expected and further examine when they are not.</li>
-<li>Test components piece by piece, whether via a top-down approach, bisection, or a combination of both. Rule out hypothesis section by section until you have narrowed it to a few or one component.</li>
-</ul>
-<h4 id="where-what-why">Where, What, Why?</h4>
-<ul>
-<li>What is the malfunctioning system doing?</li>
-<li>Where</li>
-</ul>
-<h3 id="5-test--treat">5. Test &amp; Treat</h3>
-<h4 id="experiment-and-test">Experiment and test.</h4>
-<pre><code>- Perform the quick/obvious tests first.
-    - Are we failing to connect to a database? Test the connection to your DB from inside a running pod rather than looking at configuration code first.
-</code></pre>
-<ul>
-<li>Document which ideas you had, how you tested them, and what the results of each test were.
-<ul>
-<li>If you have any visualizations to pair with these tests that increases the usefulness of this documentation tenfold.
-Do NOT discount the value of a negative test. Getting a result we did not expect can push us closer to the correct answer and possibly surface issues we were unaware of.</li>
+<li>Do we have observability built into each of those parts?</li>
 </ul>
 </li>
 </ul>
-<h4 id="cure">Cure</h4>
+</li>
+<li>
+<p>This time should also be used to educate teams on what behaviors their part of the application exhibits with the telemetry data currently being collected and where potential gaps lie.</p>
+</li>
+</ul>
+<h2 id="monitoring---establishing-a-baseline">Monitoring - Establishing a Baseline</h2>
+<h3 id="melt---setup-telemetry--monitoring-for-priority-1-and-beyond">MELT - Setup Telemetry &amp; Monitoring for Priority 1 and Beyond</h3>
 <ul>
-<li>After narrowing down the cause(s) of the problem, we apply the fix(es) and complete our documentation (Postmortem).</li>
-<li>A good postmortem covers:
+<li>MELT (metrics, events, logs, traces) must be in place for the services deemed priority one for our system.
 <ul>
-<li>What went wrong?</li>
-<li>How did we track the problem?</li>
-<li>How did we fix the problem?</li>
-<li>How do we prevent it from re-occurring?</li>
+<li>Install collection agents and operator/APM agents in all relevant environments.</li>
+</ul>
+</li>
+<li>Repeat this step for all services which your P1 service depends on or interacts with.
+<ul>
+<li>There may be parts of your system which rely on services you do not have control over or cannot instrument. Try to limit how often this is the case and try to remove single points of failure when it is.</li>
 </ul>
 </li>
 </ul>
-<h2 id="sources">Sources</h2>
-<p><a href="https://sre.google/sre-book/effective-troubleshooting/">Effective Troubleshooting</a>
-<a href="https://sre.google/sre-book/addressing-cascading-failures/">Cascading Failures</a>
-<a href="https://sre.google/sre-book/managing-incidents/">Incident Management</a>
-<a href="https://sre.google/sre-book/emergency-response/">Emergency Response</a></p>
+<h3 id="automation">Automation</h3>
+<ul>
+<li>Automate, automate, automate
+<ul>
+<li>As you move through the system, set patterns and automate repeatable processes where you can.
+<ul>
+<li>Identify common monitors and metrics you want to surface for all your services and create templates rather than starting from scratch each time you onboard new services.</li>
+</ul>
+</li>
+<li>What you build should be simple, understandable, and reusable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="perform-production-readiness-reviews">Perform Production Readiness Reviews</h2>
+<p>I won&rsquo;t go into details on this as the Google SRE book gives what I (and most industry professionals) feel is a great introduction and example of PRRs and their implementation. This process should be tailored to the needs of the business and agreed to by the development teams.
+<a href="https://sre.google/sre-book/evolving-sre-engagement-model/">SRE Engagement Model and PRRs</a></p>
+<h2 id="document-and-plan">Document and Plan</h2>
+<p>The development teams will be responsible for the documentation and monitoring of their services and therefore must be the authors of documentation and SLAs for them.</p>
+<ul>
+<li>Work with them to produce these documents and generate reusable guidelines for managing them going forward.</li>
+<li>Agree on and implement a plan to improve observability as the system evolves and grows in complexity.</li>
+</ul>
+<h2 id="incident-management">Incident Management</h2>
+<p>After completing the above for all relevant, high priority services, you can start putting together processes for incident response. These processes should be automated whenever possible.</p>
+<h3 id="next-articleintro-to-telemetrypostsintrototelemetry"><a href="/posts/intrototelemetry/">Next Article&hellip;(Intro to Telemetry)</a></h3>
 
             </div>
         </article></main>

@@ -45,10 +45,15 @@ ignoreErrors = ["additional-script-loading-error"]
     url = '/pages/background/'
     weight = 25
   [[Languages.en-us.menu.main]]
-    pageRef="posts"
-    name = 'Posts'
-    url = '/posts/'
+    pageRef="reliability"
+    name = 'Building Reliability'
+    url = '/pages/reliability'
     weight = 30
+  [[Languages.en-us.menu.main]]
+    pageRef="srevsdevops"
+    name = 'SRE vs DevOps'
+    url = '/pages/srevsdevops/'
+    weight = 35
 
 [Languages.en-us.params]
   sitename = "Oli's Workshop"

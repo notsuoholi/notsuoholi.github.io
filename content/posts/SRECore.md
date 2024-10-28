@@ -1,11 +1,11 @@
 +++
-title = 'SRE - Core Principles'
-date = 2024-10-16T22:20:49-05:00
+title = 'SRE, Core Principles'
+date = 2024-10-16
 draft = false
 +++
-I have outlined a few of the core responsibilities and practices of Site Reliability Engineers (SREs). Their focus is primarily on operational resilience and reducing toil through automation. 
+I have outlined a few of the core responsibilities and practices of Site Reliability Engineers (SREs).
 
-My goal was to cover key topics like system reliability, incident management, the importance of metrics like SLIs, SLOs, and SLAs, and how SREs use monitoring and alerting to maintain service performance while collaborating closely with development teams to ensure scalable, predictable, and efficient systems.
+My goal was to cover key topics like system reliability, incident management, the importance of SLIs, SLOs, and SLAs, and how SREs use monitoring and alerting to maintain service performance while collaborating closely with development teams to ensure scalable, predictable, and efficient systems.
 
 ## SRE - A Focus Operational Resilience & TOIL Reduction
 - SREs focus on system reliability and incident management. We make data driven decisions which benefit the system. We automate to reduce toil and improve change management to ensure processes in place are repeatable, predictable, and most importantly, scalable.
@@ -259,6 +259,12 @@ If I have 2.5M requests per day and aim for 99.99% availability I could reasonab
 - The most successful SRE teams display the above qualities. 
      - They are open and excited to collaborate with development teams to improve the health and reliability of their systems. 
      - They have a clear vision for what they want to deliver and leave room in their road maps for the needs of development teams to seek their assistance. In a perfect world, these road maps are created in collaboration with development teams.
+
+## A Visualization of the Above
+[This medium article](https://ernesenorelus.medium.com/building-sre-from-scratch-485e23985bbd) gives a very similar, high level outline of the topics I spoke about above. 
+It also provides this flowchart which I feel does a great job of demonstrating the many areas which SREs are responsible for and wraps up this post well.
+
+![Alt Text](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*3Hn-OiFm27eP6bMfSiClKQ.png)
 
 ## Sources
 - [SRE vs DevOps (Atlassian)](https://www.atlassian.com/devops/frameworks/sre-vs-devops)
