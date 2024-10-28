@@ -1,5 +1,5 @@
 +++
-title = 'SRE - Core Principles'
+title = 'SRE, Core Principles'
 date = 2024-10-16
 draft = false
 +++

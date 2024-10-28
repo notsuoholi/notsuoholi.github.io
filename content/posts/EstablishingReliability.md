@@ -3,13 +3,7 @@ title = 'Establishing Reliability, a High Level Overview'
 date = 2024-10-27
 draft = false
 +++
-This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system. Below are links to the other articles in this series.
-
-1. Establishing Reliability (this article)
-2. Intro to Telemetry
-    - Intro to OpenTelemetry
-3. Intro to Monitoring and Observability
-4. Defining Reliability for Your System
+This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system.
 
 **Note:** Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.
 

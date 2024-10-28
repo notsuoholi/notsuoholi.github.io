@@ -2,17 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Oli&#39;s Workshop</title>
-    <link>https://notsuoholi.github.io/pages/</link>
+    <link>http://localhost:1313/pages/</link>
     <description>Recent content in Pages on Oli&#39;s Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Oct 2024 21:35:26 -0500</lastBuildDate><atom:link href="https://notsuoholi.github.io/pages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reliability Series</title>
+      <link>http://localhost:1313/pages/reliability/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/pages/reliability/</guid>
+      
+      <description>&lt;p&gt;Below are a collection of articles which work together as a guideline for establishing Reliability and Observability within a system. Below are links to the articles in this series.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/establishingreliability/&#34;&gt;Establishing Reliability&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/intrototelemetry/&#34;&gt;Telemetry, An Introduction&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/introtoopentelemetry/&#34;&gt;Instrumentation with OpenTelemetry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/introtomonitoringandobservability/&#34;&gt;Monitoring &amp;amp; Observability, An Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/definingreliability/&#34;&gt;Defining Reliability within Your System&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SRE VS DevOps</title>
+      <link>http://localhost:1313/pages/srevsdevops/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/pages/srevsdevops/</guid>
+      
+      <description>&lt;p&gt;The distinction between Site Reliability Engineering (SRE) and DevOps often sparks debate within the tech community, as both aim to enhance software delivery and operational efficiency but do so through different principles and methodologies. In this series, I will explore the key concepts of each specialty, highlighting their unique roles and responsibilities.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/srecore/&#34;&gt;SRE and Core Principles&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/sresecurity/&#34;&gt;Security and YOU (the SRE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/sretroubleshooting/&#34;&gt;Troubleshooting as an SRE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/devopscore/&#34;&gt;DevOps &amp;amp; Release Management, Core Principles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Background</title>
-      <link>https://notsuoholi.github.io/pages/background/</link>
+      <link>http://localhost:1313/pages/background/</link>
       <pubDate>Sun, 06 Oct 2024 21:35:26 -0500</pubDate>
       
-      <guid>https://notsuoholi.github.io/pages/background/</guid>
+      <guid>http://localhost:1313/pages/background/</guid>
       
       <description>&lt;h1 id=&#34;my-background&#34;&gt;My Background&lt;/h1&gt;
 &lt;p&gt;I am a Site Reliability Engineer with over five years of experience. I have a proven track record of transforming cloud infrastructure, ensuring system reliability, and reducing infrastructure costs. I crave a challenging environment where I can think out of the box and employ new techniques to solve difficult problems.&lt;/p&gt;
@@ -35,10 +76,10 @@ Designed and facilitated technical interviews for prospective SRE candidates, as
     
     <item>
       <title>About Me</title>
-      <link>https://notsuoholi.github.io/pages/about/</link>
+      <link>http://localhost:1313/pages/about/</link>
       <pubDate>Sun, 06 Oct 2024 20:53:44 -0500</pubDate>
       
-      <guid>https://notsuoholi.github.io/pages/about/</guid>
+      <guid>http://localhost:1313/pages/about/</guid>
       
       <description>&lt;p&gt;I am a driven professional constantly trying to find new ways to improve. I understand that a person can only grow when they take time to water themselves. When one pours effort and time into the things that bring them joy and a sense of pride, the result is often seen, felt, and heard by others.&lt;/p&gt;
 &lt;p&gt;My hope is that this simple blog will inspire others to begin that journey for themselves. Here is where I will showcase all the things I am working on, the things that bring me joy, the things that make me better.&lt;/p&gt;</description>

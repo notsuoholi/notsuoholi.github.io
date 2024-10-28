@@ -1,5 +1,5 @@
 +++
-title = 'Defining Reliability for Your System'
+title = 'Defining Reliability within Your System'
 date = 2024-10-27
 draft = false
 +++

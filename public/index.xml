@@ -2,17 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Oli&#39;s Workshop</title>
-    <link>https://notsuoholi.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Oli&#39;s Workshop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://notsuoholi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Defining Reliability for Your System</title>
-      <link>https://notsuoholi.github.io/posts/definingreliability/</link>
+      <title>Building for Reliability, A Series</title>
+      <link>http://localhost:1313/pages/reliability/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/definingreliability/</guid>
+      <guid>http://localhost:1313/pages/reliability/</guid>
+      
+      <description>&lt;p&gt;Below are a collection of articles which work together as a guideline for establishing Reliability and Observability within a system. Below are links to the articles in this series.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/establishingreliability/&#34;&gt;Establishing Reliability&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/intrototelemetry/&#34;&gt;Telemetry, An Introduction&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/introtoopentelemetry/&#34;&gt;Instrumentation with OpenTelemetry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/introtomonitoringandobservability/&#34;&gt;Monitoring &amp;amp; Observability, An Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/definingreliability/&#34;&gt;Defining Reliability within Your System&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Defining Reliability within Your System</title>
+      <link>http://localhost:1313/posts/definingreliability/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/definingreliability/</guid>
       
       <description>&lt;p&gt;This outline provides an approach to building reliability into your system or application. To fully grasp the concepts discussed here, it’s essential to understand the concepts discussed in the other articles in this collection, as they serve as foundational building blocks.&lt;/p&gt;
 &lt;h2 id=&#34;understanding-business-requirements-and-user-expectation&#34;&gt;Understanding Business Requirements and User Expectation&lt;/h2&gt;
@@ -43,32 +64,44 @@
     
     <item>
       <title>Establishing Reliability, a High Level Overview</title>
-      <link>https://notsuoholi.github.io/posts/establishingreliability/</link>
+      <link>http://localhost:1313/posts/establishingreliability/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/establishingreliability/</guid>
+      <guid>http://localhost:1313/posts/establishingreliability/</guid>
       
-      <description>&lt;p&gt;This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system. Below are links to the other articles in this series.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Establishing Reliability (this article)&lt;/li&gt;
-&lt;li&gt;Intro to Telemetry
+      <description>&lt;p&gt;This is the first in a collection of articles which work together as a guideline for establishing Reliability and Observability within a system.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.&lt;/p&gt;
+&lt;h2 id=&#34;questions-to-ask&#34;&gt;Questions to Ask&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Intro to OpenTelemetry&lt;/li&gt;
+&lt;li&gt;Are all services within the system observable?
+&lt;ul&gt;
+&lt;li&gt;Are we using a well-known framework or standard? (i.e. OpenTelemetry)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Intro to Monitoring and Observability&lt;/li&gt;
-&lt;li&gt;Defining Reliability for Your System&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Below, I refer to applications, services, and the system as a whole. In a microservice-based architecture, all the individual services work together to create the overall application that an end-user interacts with. This context should help clarify some of the explanations that follow.&lt;/p&gt;</description>
+&lt;li&gt;How do we configure our Infrastructure?
+&lt;ul&gt;
+&lt;li&gt;IaC or manual config?&lt;/li&gt;
+&lt;li&gt;Can we identify any areas we may want to measure based on configuration?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Have all previous outage causes or potential issues been identified and fixed?
+&lt;ul&gt;
+&lt;li&gt;If these above have not been fixed are they properly documented and work tracked?&lt;/li&gt;
+&lt;li&gt;Is there tech debt to consider?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;understand-your-needs&#34;&gt;Understand Your Needs&lt;/h2&gt;
+&lt;p&gt;If you are building reliability and observability into a system, it is most important to lean on the SMEs from your development teams and platform engineering teams. They are the people who understand the system you are to measure.&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>Instrumentation with OpenTelemetry</title>
-      <link>https://notsuoholi.github.io/posts/introtoopentelemetry/</link>
+      <link>http://localhost:1313/posts/introtoopentelemetry/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/introtoopentelemetry/</guid>
+      <guid>http://localhost:1313/posts/introtoopentelemetry/</guid>
       
       <description>&lt;h2 id=&#34;opentelemetry---an-overview&#34;&gt;OpenTelemetry - An Overview&lt;/h2&gt;
 &lt;p&gt;OTEL is an open source observability framework. It offers vendor-agnostic or vendor-neutral APIs, software development kits (SDKs) and other tools for collecting telemetry data from cloud-native applications and their supporting infrastructure to understand their performance and health.&lt;/p&gt;
@@ -78,18 +111,18 @@
     
     <item>
       <title>Monitoring &amp; Observability, An Introduction</title>
-      <link>https://notsuoholi.github.io/posts/introtomonitoringandobservability/</link>
+      <link>http://localhost:1313/posts/introtomonitoringandobservability/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/introtomonitoringandobservability/</guid>
+      <guid>http://localhost:1313/posts/introtomonitoringandobservability/</guid>
       
       <description>&lt;h2 id=&#34;what-is-monitoring&#34;&gt;What &lt;em&gt;&lt;strong&gt;is&lt;/strong&gt;&lt;/em&gt; Monitoring?&lt;/h2&gt;
 &lt;p&gt;The action you take. We monitor a system, an application, a metric to find anomalies that may indicate a problem. Monitoring allows us to determine whether our system is working correctly and exhibiting expected behaviors.&lt;/p&gt;
 &lt;h3 id=&#34;types-of-monitoring&#34;&gt;Types of Monitoring&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Availability Monitoring &amp;amp; Site Reliability Monitoring - Most often associated with uptime. I touch on these concepts in this &lt;a href=&#34;https://notsuoholi.github.io/posts/srecore/#monitoring--alerting&#34;&gt;post&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://notsuoholi.github.io/posts/introtomonitoringandobservability/#application-performance-monitoring&#34;&gt;Application Performance Monitoring&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://notsuoholi.github.io/posts/introtomonitoringandobservability/#synthetic-and-real-user-monitoring&#34;&gt;RUM and Synthetic Monitoring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/introtomonitoringandobservability/#application-performance-monitoring&#34;&gt;Application Performance Monitoring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/introtomonitoringandobservability/#synthetic-and-real-user-monitoring&#34;&gt;RUM and Synthetic Monitoring&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Security Monitoring &amp;amp; Network Monitoring - Threat detection and security event management. I won&amp;rsquo;t go into much detail on that for this series but you can begin to read more &lt;a href=&#34;https://www.splunk.com/en_us/blog/learn/security-monitoring.html&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;monitoring-tools&#34;&gt;Monitoring Tools&lt;/h3&gt;
@@ -105,10 +138,10 @@
     
     <item>
       <title>Telemetry, An Introduction</title>
-      <link>https://notsuoholi.github.io/posts/intrototelemetry/</link>
+      <link>http://localhost:1313/posts/intrototelemetry/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/intrototelemetry/</guid>
+      <guid>http://localhost:1313/posts/intrototelemetry/</guid>
       
       <description>&lt;h2 id=&#34;what-is-telemetry&#34;&gt;What &lt;em&gt;&lt;strong&gt;is&lt;/strong&gt;&lt;/em&gt; Telemetry?&lt;/h2&gt;
 &lt;p&gt;The process of collecting and analyzing data from various sources to gain insights into our system&amp;rsquo;s overall performance. It&amp;rsquo;s critical to our decision making process and helps us with monitoring and measuring the observability of our system.&lt;/p&gt;
@@ -121,10 +154,10 @@
     
     <item>
       <title>Troubleshooting as an SRE</title>
-      <link>https://notsuoholi.github.io/posts/sretroubleshooting/</link>
+      <link>http://localhost:1313/posts/sretroubleshooting/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/sretroubleshooting/</guid>
+      <guid>http://localhost:1313/posts/sretroubleshooting/</guid>
       
       <description>&lt;p&gt;Below, I will outline some of best practices an SRE should follow to efficiently diagnose and resolve issues within a system, even one they are not familiar with.&lt;/p&gt;
 &lt;h2 id=&#34;general-troubleshooting-method&#34;&gt;General Troubleshooting Method&lt;/h2&gt;
@@ -135,11 +168,31 @@
     </item>
     
     <item>
+      <title>SRE VS DevOps</title>
+      <link>http://localhost:1313/pages/srevsdevops/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/pages/srevsdevops/</guid>
+      
+      <description>&lt;p&gt;The distinction between Site Reliability Engineering (SRE) and DevOps often sparks debate within the tech community, as both aim to enhance software delivery and operational efficiency but do so through different principles and methodologies. In this series, I will explore the key concepts of each specialty, highlighting their unique roles and responsibilities.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/srecore/&#34;&gt;SRE and Core Principles&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/sresecurity/&#34;&gt;Security and YOU (the SRE)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/sretroubleshooting/&#34;&gt;Troubleshooting as an SRE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/devopscore/&#34;&gt;DevOps &amp;amp; Release Management, Core Principles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Security and YOU (the SRE)</title>
-      <link>https://notsuoholi.github.io/posts/sresecurity/</link>
+      <link>http://localhost:1313/posts/sresecurity/</link>
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/sresecurity/</guid>
+      <guid>http://localhost:1313/posts/sresecurity/</guid>
       
       <description>&lt;p&gt;Though it may seem as though security might not need to be at the forefront of an SRE&amp;rsquo;s mind, the reality couldn&amp;rsquo;t be more different.&lt;/p&gt;
 &lt;ul&gt;
@@ -161,11 +214,11 @@
     </item>
     
     <item>
-      <title>SRE - Core Principles</title>
-      <link>https://notsuoholi.github.io/posts/srecore/</link>
+      <title>SRE, Core Principles</title>
+      <link>http://localhost:1313/posts/srecore/</link>
       <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/srecore/</guid>
+      <guid>http://localhost:1313/posts/srecore/</guid>
       
       <description>&lt;p&gt;I have outlined a few of the core responsibilities and practices of Site Reliability Engineers (SREs).&lt;/p&gt;
 &lt;p&gt;My goal was to cover key topics like system reliability, incident management, the importance of SLIs, SLOs, and SLAs, and how SREs use monitoring and alerting to maintain service performance while collaborating closely with development teams to ensure scalable, predictable, and efficient systems.&lt;/p&gt;
@@ -178,10 +231,10 @@
     
     <item>
       <title>DevOps &amp; Release Management, Core Principles</title>
-      <link>https://notsuoholi.github.io/posts/devopscore/</link>
+      <link>http://localhost:1313/posts/devopscore/</link>
       <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://notsuoholi.github.io/posts/devopscore/</guid>
+      <guid>http://localhost:1313/posts/devopscore/</guid>
       
       <description>&lt;p&gt;The below serves to outline some of the key aspects of DevOps and Release Engineering. It is not at all a complete guide but does cover some of the most important components. I will add to is as I continue to dive deeper.&lt;/p&gt;
 &lt;h2 id=&#34;devops---a-delicate-balance-of-development-and-operations&#34;&gt;DevOps - A delicate balance of development and operations.&lt;/h2&gt;
@@ -196,10 +249,10 @@
     
     <item>
       <title>Background</title>
-      <link>https://notsuoholi.github.io/pages/background/</link>
+      <link>http://localhost:1313/pages/background/</link>
       <pubDate>Sun, 06 Oct 2024 21:35:26 -0500</pubDate>
       
-      <guid>https://notsuoholi.github.io/pages/background/</guid>
+      <guid>http://localhost:1313/pages/background/</guid>
       
       <description>&lt;h1 id=&#34;my-background&#34;&gt;My Background&lt;/h1&gt;
 &lt;p&gt;I am a Site Reliability Engineer with over five years of experience. I have a proven track record of transforming cloud infrastructure, ensuring system reliability, and reducing infrastructure costs. I crave a challenging environment where I can think out of the box and employ new techniques to solve difficult problems.&lt;/p&gt;
@@ -222,10 +275,10 @@ Designed and facilitated technical interviews for prospective SRE candidates, as
     
     <item>
       <title>About Me</title>
-      <link>https://notsuoholi.github.io/pages/about/</link>
+      <link>http://localhost:1313/pages/about/</link>
       <pubDate>Sun, 06 Oct 2024 20:53:44 -0500</pubDate>
       
-      <guid>https://notsuoholi.github.io/pages/about/</guid>
+      <guid>http://localhost:1313/pages/about/</guid>
       
       <description>&lt;p&gt;I am a driven professional constantly trying to find new ways to improve. I understand that a person can only grow when they take time to water themselves. When one pours effort and time into the things that bring them joy and a sense of pride, the result is often seen, felt, and heard by others.&lt;/p&gt;
 &lt;p&gt;My hope is that this simple blog will inspire others to begin that journey for themselves. Here is where I will showcase all the things I am working on, the things that bring me joy, the things that make me better.&lt;/p&gt;</description>
